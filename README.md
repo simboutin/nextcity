@@ -3,6 +3,6 @@ Discover your future city : an instant, readable and comparative selection of th
 according to your situation and wishes.
 
 ## Try it
-- Heroku : https://nextcity.herokuapp.com/
+Heroku : https://nextcity.herokuapp.com/  
 - Login : tom@gmail.com
 - Mdp   : 123456
