@@ -15,7 +15,10 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+    
+    <div class="<%= 'container' unless @disable_container %> " style="<%= 'margin-top: 6rem; margin-bottom: 2.4rem;' unless @disable_margins %>">
+      <%= yield %>  
+    </div>
 
-    <%= yield %>
   </body>
 </html>

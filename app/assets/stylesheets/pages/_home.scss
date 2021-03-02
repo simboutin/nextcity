@@ -1,1 +1,20 @@
 // Specific CSS for your home-page
+
+#home-banner {
+  display: flex;
+  align-items: center;
+  background-color: $yellow;
+  height: 100vh;
+  img {
+    width: 40%;
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  #home-banner {
+    img {
+      display: block;
+    }
+  }
+}
