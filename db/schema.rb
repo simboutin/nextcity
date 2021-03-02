@@ -25,11 +25,11 @@ ActiveRecord::Schema.define(version: 2021_02_27_132438) do
   end
 
   create_table "cities", force: :cascade do |t|
-    t.string "name"
-    t.float "latitude"
-    t.float "longitude"
-    t.text "description"
-    t.integer "population"
+    t.string "name", null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.text "description", null: false
+    t.integer "population", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -52,11 +52,11 @@ ActiveRecord::Schema.define(version: 2021_02_27_132438) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "first_name"
-    t.string "last_name"
-    t.string "address"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "address", null: false
     t.text "bio"
-    t.boolean "ambassador"
+    t.boolean "ambassador", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
