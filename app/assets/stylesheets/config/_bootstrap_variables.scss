@@ -18,6 +18,27 @@ $info:       $yellow;
 $danger:     $red;
 $warning:    $orange;
 
+// Acordions
+
+$accordion-button-padding-y: 15px;
+$accordion-button-padding-x: 15px;
+$accordion-button-color: $pink;
+$accordion-button-active-color:$gray;
+$accordion-button-bg: white;
+$accordion-button-active-bg: #F3F0F3;
+$accordion-border-width: 1px;
+$accordion-button-focus-border-color:#E5E5E5;
+$accordion-button-focus-box-shadow:none;
+$accordion-border-color: #E5E5E5;
+$accordion-transition: 0;
+$accordion-button-active-icon: none;
+$accordion-icon-transform: none;
+$accordion-icon-width:none;
+$accordion-border-radius: 4px;
+$accordion-body-padding-y: 10px;
+$accordion-body-padding-x: 10px;
+
+
 // Buttons & inputs' radius
 $border-radius:    16px;
 $border-radius-lg: 16px;
