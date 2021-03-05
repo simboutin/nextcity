@@ -44,12 +44,18 @@ a {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: $purple;
 }
 
-h3 {
+h2 {
   font-size: 1.5rem;
+  font-weight: bold;
+  color: $primary;
+}
+
+h3 {
+  font-size: 1.3rem;
   color: $purple;
 }
