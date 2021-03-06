@@ -11,6 +11,20 @@
   }
 }
 
+#steps {
+  background-color: $light-purple;
+}
+
+footer {
+  box-shadow: 0 -5px 30px -12px rgba(0, 0, 0, 0.2);
+  a {
+    color: $gray;
+  }
+  p {
+    margin: 0;
+  }
+}
+
 @media (min-width: 768px) {
   #home-banner {
     img {
