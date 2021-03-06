@@ -2,18 +2,13 @@ class CityCommentsController < ApplicationController
   before_action :set_city
   before_action :set_user
 
-  def new
-    @comment = CityComment.new
-    authorize @comment
-  end
-
   def create
     @comment = @city.city_comments.new(city_comment_params)
     @comment.user = current_user
     if @comment.save
       redirect_to @city, notice: "Commentaire ajouté"
     else
-      render :new
+      redirect_to @city
     end
     authorize @comment
   end

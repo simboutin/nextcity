@@ -6,10 +6,6 @@ class CityCommentPolicy < ApplicationPolicy
   end
 
 
-  def new?
-    create?
-  end
-
   def create?
    true
   end
