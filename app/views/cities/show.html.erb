@@ -1,3 +1,7 @@
-@city.name
+<h2><%= @city.name %></h2>
 
-<%= cl_image_tag @city.photo.key, height: 300, width: 400, crop: :fill %>
+<% if @city.photo.attached? %>
+  <%= cl_image_tag @city.photo.key, height: 300, width: 400, crop: :fill %>
+<% else %>
+  <p>Cette ville n'a pas encore de photo</p>
+<% end %>
