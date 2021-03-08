@@ -1,0 +1,4 @@
+<%= simple_form_for([city, comment]) do |f| %>
+  <%= f.input :content, label: "Votre question" %>
+  <%= f.submit "Posez votre question", class: "btn btn-primary" %>
+<% end %>
