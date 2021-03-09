@@ -1,3 +1,43 @@
-@city.name
+<h2><%= @city.name %></h2>
 
-<%= cl_image_tag @city.photo.key, height: 300, width: 400, crop: :fill %>
+<% if @city.photo.attached? %>
+  <%= cl_image_tag @city.photo.key, height: 300, width: 400, crop: :fill %>
+<% else %>
+  <p>Cette ville n'a pas encore de photo</p>
+<% end %>
+
+<h2><%= @comments.size %> commentaires sur la ville</h2>
+
+<p>
+  <%= render  partial: "city_comments/comment", collection: @comments %>
+</p>
+
+<%= link_to 'Poser une question sur Anger', new_city_city_comment_path(@city) , class: "btn btn-primary" %>
+
+<br>
+<% if current_user_is_not_ambassador? %>
+  <h5>Posez votre question aux ambassadeurs de <%= @city.name %></h5>
+  <div class="card p-4">
+    <%= render "city_comments/form", city: @city, comment: @comment %>
+  </div>
+<% end %>
+
+
+<div class="accordion" id="accordionExample">
+  <% @comments.each do |comment| %>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="heading<%= comment.id %>">
+      <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%= comment.id %>" aria-expanded="false" aria-controls="collapse<%= comment.id %>">
+        <%= comment.content %>
+      </button>
+    </h2>
+    <div id="collapse<%= comment.id %>" class="accordion-collapse collapse" aria-labelledby="heading<%= comment.id %>" data-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
