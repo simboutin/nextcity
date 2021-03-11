@@ -1,0 +1,100 @@
+<!-- Title & Buttons -->
+<section class="py-4" style="background-color: #F2F2F2; margin-top: 3.6rem;">
+  <div class="container d-flex justify-content-between">
+    <h1>3 villes sélectionnées pour vous</h1>
+    <div class="d-flex">
+      <button id="refresh-btn" class="round-btn mr-2">
+        <i class="fas fa-sync-alt"></i>
+      </button>
+      <button id="criteria-btn" class="round-btn">
+        <i class="fas fa-sliders-h"></i>
+      </button>
+    </div>
+  </div>
+</section>
+<!-- Title -->
+
+<!-- Criteria selection -->
+<section id="criteria">
+  <div class="container">
+    <div class="d-flex align-items-center">
+      <h2 class="mr-4 mb-0">Filtres</h2>
+      <button class="btn btn-primary mr-2 criterion">Emploi</button>
+      <button class="btn btn-primary mr-2 criterion">Logement</button>
+      <button class="btn btn-primary mr-2 criterion">Tourisme</button>
+      <button class="btn btn-primary mr-2 criterion">Internet</button>
+      <button class="btn btn-primary mr-2 criterion">Météo</button>
+    </div>
+  </div>
+</section>
+<!-- Criteria selection -->
+
+<!--Cities comparison -->
+<section class="container my-5">
+
+  <!--City img -->
+  <div class="results">
+    <%= render partial: "shared/city_card", collection: @cities, as: :item %>
+  </div>
+  <!--City img -->
+
+  <!--City description -->
+  <div class="results mb-3">
+    <%= render partial: "shared/city_description", collection: @cities, as: :item %>  
+  </div>
+  <!--City description -->
+
+  <!-- Job criterion -->
+  <div id="emploi-criterion" class="criterion-line show">
+    <hr>
+    <div class="results my-3">
+      <%= render partial: "shared/city_job_criterion", collection: @cities, as: :item %>  
+    </div>
+  </div>
+  <!-- Job criterion -->
+
+  <!-- Home criterion -->
+  <div id="logement-criterion" class="criterion-line show">
+    <hr>
+    <div class="results my-3">
+      <%= render partial: "shared/city_home_criterion", collection: @cities, as: :item %>  
+    </div>
+  </div>
+  <!-- Home criterion -->
+
+  <!-- Tourism criterion -->
+  <div id="tourism-criterion" class="criterion-line show">
+    <hr>
+    <div class="results my-3">
+      <%= render partial: "shared/city_tourism_criterion", collection: @cities, as: :item %>  
+    </div>
+  </div>
+  <!-- Tourism criterion -->
+
+  <!-- Internet criterion -->
+  <div id="internet-criterion" class="criterion-line show">
+    <hr>
+    <div class="results my-3">
+      <%= render partial: "shared/city_internet_criterion", collection: @cities, as: :item %>  
+    </div>
+  </div>
+  <!-- Internet criterion -->
+
+  <!-- Weather criterion -->
+  <div id="météo-criterion" class="criterion-line show">
+    <hr>
+    <div class="results mt-3">
+      <%= render partial: "shared/city_weather_criterion", collection: @cities, as: :item %>  
+    </div>
+  </div>
+  <!-- Weather criterion -->
+
+  <!-- City link -->
+  <div class="results">
+    <%= render partial: "shared/city_link", collection: @cities, as: :item %>  
+  </div>
+  <!-- City link -->
+
+</section>
+<!--Cities comparison -->
+

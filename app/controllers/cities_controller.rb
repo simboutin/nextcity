@@ -1,6 +1,6 @@
 class CitiesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :show ]
-  #skip_after_action :verify_authorized
+  skip_before_action :authenticate_user!, only: [ :show, :results ]
+  # skip_after_action :verify_authorized
 
   def show
     @city = City.find(params[:id])
@@ -9,10 +9,10 @@ class CitiesController < ApplicationController
     authorize @city
   end
 
-  private
-
-  def article_params
-  params.require(:city).permit(:photo)
+  def results
+    @disable_container = true
+    @disable_margins = true
+    @cities = policy_scope(City).limit(3)
+    authorize @cities
   end
-
 end
