@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nextcity</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+  </head>
+
+  <body style="background-color: #34113F" class="justify-content-around">
+
+    <%= render 'shared/flashes' %>
+    
+    <div class="container my-5">
+      <div class="row flex-column justify-content-center align-items-center">
+        <%= link_to 'Retour', :back, class: 'mb-5 text-white' %>
+        
+        <%= yield %>
+        
+        <%= link_to "/", class: "mt-5" do %>
+          <%= image_tag "logo.png", width: 100 %>
+        <% end %>
+      </div>
+    </div>
+
+  </body>
+</html>
