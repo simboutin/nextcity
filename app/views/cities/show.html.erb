@@ -12,8 +12,6 @@
   <%= render  partial: "city_comments/comment", collection: @comments %>
 </p>
 
-<%= link_to 'Poser une question sur Anger', new_city_city_comment_path(@city) , class: "btn btn-primary" %>
-
 <br>
 <% if current_user_is_not_ambassador? %>
   <h5>Posez votre question aux ambassadeurs de <%= @city.name %></h5>
@@ -23,6 +21,7 @@
 <% end %>
 
 
+<h5>Les questions sur la ville</h5>
 <div class="accordion" id="accordionExample">
   <% @comments.each do |comment| %>
   <div class="accordion-item">
@@ -33,11 +32,24 @@
     </h2>
     <div id="collapse<%= comment.id %>" class="accordion-collapse collapse" aria-labelledby="heading<%= comment.id %>" data-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        <% if comment.answer %>
+        <div class="d-flex p-2 align-self-center">
+          <div>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+          </div>
+          <p class="accordion-message ml-2 mb-0">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe magni possimus fugit omnis cupiditate voluptatum tenetur accusantium, commodi quam veritatis, vitae nihil praesentium error voluptates fugiat hic minus sapiente, aliquam.
+          </p>
+        <% end %>
+
+        </div>
+        <div>
+          <small class="accordion-message-timestamp mt-0" >Réponse de Mitch Buchannon - 04 mars 2021</small>
+        </div>
       </div>
     </div>
   </div>
   <% end %>
 </div>
 
-
+<%= pe = console %>

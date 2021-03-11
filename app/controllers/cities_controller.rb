@@ -4,7 +4,7 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
-    @comments = @city.city_comments
+    @comments = @city.city_comments.with_answer
     @comment = CityComment.new
     authorize @city
   end
@@ -12,7 +12,7 @@ class CitiesController < ApplicationController
   private
 
   def article_params
-  params.require(:city).permit(:photo)
+    params.require(:city).permit(:photo)
   end
 
 end

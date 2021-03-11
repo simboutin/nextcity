@@ -1,0 +1,23 @@
+<h1>Admin::Users#show</h1>
+<p>Find me in app/views/admin/users/show.html.erb</p>
+
+<% if current_user_is_ambassador? %>
+
+<h5>Les questions sur la ville</h5>
+
+<div class="accordion" id="accordionExample">
+  <% @comments.each do |comment| %>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="heading<%= comment.id %>">
+      <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%= comment.id %>" aria-expanded="false" aria-controls="collapse<%= comment.id %>">
+        <%= comment.content %>
+      </button>
+    </h2>
+  </div>
+  <div class="card p-4">
+    <%= render "admin/answers/form", city: @city, comment: comment, answer: @answer %>
+  </div>
+  <% end %>
+</div>
+
+<% end %>
