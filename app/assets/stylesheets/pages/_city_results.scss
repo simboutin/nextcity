@@ -1,0 +1,32 @@
+.results {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2rem;
+}
+
+#criteria {
+  max-height: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  &.show {
+    max-height: 300px;
+    padding-top: 2rem;
+    opacity: 1;
+  }
+}
+
+.criterion-line {
+  max-height: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  transition: all 0.5s ease;
+  &.show {
+    max-height: 500px;
+    opacity: 1;
+  }
+}

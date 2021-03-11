@@ -47,7 +47,9 @@
 
     <div>
       <h2 class="mb-3">Découvrez...</h2>
-      <%= render "shared/city_card" %>
+      <div class="cards">
+        <%= render partial: "shared/city_card", collection: @cities, as: :item %>
+      </div>
     </div>
 
   </div>
