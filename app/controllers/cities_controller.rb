@@ -7,6 +7,11 @@ class CitiesController < ApplicationController
     @comments = @city.city_comments
     @comment = CityComment.new
     authorize @city
+
+  @marker = {
+            lat: @city.latitude,
+            lng: @city.longitude
+              }
   end
 
   private
