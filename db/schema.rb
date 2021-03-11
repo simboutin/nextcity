@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_184510) do
+ActiveRecord::Schema.define(version: 2021_03_10_085445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,38 @@ ActiveRecord::Schema.define(version: 2021_03_09_184510) do
     t.integer "population", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "geo_shape"
+    t.integer "region_code"
+    t.string "region_name"
+    t.integer "department_code"
+    t.string "department_name"
+    t.integer "employment_zone_code"
+    t.string "employment_zone_name"
+    t.integer "epci_code"
+    t.string "epci_name"
+    t.string "city_code"
+    t.string "city_type"
+    t.float "flats_rental_price"
+    t.float "houses_rental_price"
+    t.string "mountain"
+    t.boolean "coastline"
+    t.string "mayor_last_name"
+    t.string "mayor_first_name"
+    t.string "mayor_gender"
+    t.date "mayor_date_of_birth"
+    t.float "ftth_homes_rate"
+    t.float "population_0_to_25_years_rate"
+    t.float "population_25_to_64_years_rate"
+    t.float "population_65_years_and_more_rate"
+    t.float "principal_residences_rate"
+    t.float "flats_rate"
+    t.float "houses_rate"
+    t.float "owners_rate"
+    t.float "renters_rate"
+    t.float "vacant_houses_rate"
+    t.float "net_hourly_wage"
+    t.float "unemployment_rate"
+    t.integer "tourism_structures_number"
   end
 
   create_table "city_comments", force: :cascade do |t|

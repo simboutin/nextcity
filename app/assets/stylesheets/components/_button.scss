@@ -1,0 +1,23 @@
+.round-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 3rem;
+  border: 0.1rem solid #F15067;
+  color: #F15067;
+  font-size: 1.3rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+  &:hover {
+    background-color: $primary;
+    color: white;
+  }
+  &.active {
+    background-color: $primary;
+    color: white;
+    &:hover {
+      background-color: #ee2d48;
+    }
+  }
+}

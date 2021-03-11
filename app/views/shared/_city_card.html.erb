@@ -1,11 +1,5 @@
-<div class="cards">
-  <div class="default-card card-city" style="background-image: url(<%= asset_url('angers.jpg') %>)">
-    <span>Angers</span>
+<%= link_to city_path(item) do %>
+  <div class="default-card card-city" style="background-image: url(<%= asset_url('city_card_template.svg') %>)">
+    <span><%= item.name %></span>
   </div>
-  <div class="default-card card-city" style="background-image: url(<%= asset_url('angers.jpg') %>)">
-    <span>Angers</span>
-  </div>
-  <div class="default-card card-city" style="background-image: url(<%= asset_url('angers.jpg') %>)">
-    <span>Angers</span>
-  </div>
-</div>
+<% end %>
