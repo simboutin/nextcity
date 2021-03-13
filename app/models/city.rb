@@ -3,4 +3,8 @@ class City < ApplicationRecord
   has_many :city_comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_one_attached :photo
+
+  geocoded_by :address
+
+
 end
