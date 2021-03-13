@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
 
   root to: 'pages#home'
@@ -10,5 +11,11 @@ Rails.application.routes.draw do
     resources :city_comments, only: [:new, :create]
   end
 
+  namespace :admin do
+    resources :users, only: [:show]
+    resources :city_comments, only: [] do
+      resources :answers, only: [:new, :create]
+    end
+  end
 
 end

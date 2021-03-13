@@ -20,4 +20,11 @@ class CitiesController < ApplicationController
     @cities = policy_scope(City).limit(3)
     authorize @cities
   end
+
+  private
+
+  def article_params
+    params.require(:city).permit(:photo)
+  end
+
 end

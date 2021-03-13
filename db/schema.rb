@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_085445) do
+ActiveRecord::Schema.define(version: 2021_03_13_084452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 2021_03_10_085445) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "answers", force: :cascade do |t|
+    t.text "comment"
+    t.bigint "city_comment_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["city_comment_id"], name: "index_answers_on_city_comment_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "bookmarks", force: :cascade do |t|
@@ -117,14 +127,19 @@ ActiveRecord::Schema.define(version: 2021_03_10_085445) do
     t.string "first_name"
     t.string "last_name"
     t.string "address"
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "answers", "city_comments"
+  add_foreign_key "answers", "users"
   add_foreign_key "bookmarks", "cities"
   add_foreign_key "bookmarks", "users"
   add_foreign_key "city_comments", "cities"
   add_foreign_key "city_comments", "users"
+  add_foreign_key "users", "cities"
 end

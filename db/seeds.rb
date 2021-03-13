@@ -5,16 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.destroy_all
+Answer.destroy_all
+CityComment.destroy_all
 City.destroy_all
+User.destroy_all
+Bookmark.destroy_all
 
-user = User.create!(first_name: 'TO', last_name: 'Jo', address: "SS", email: "fsfs@ca.com", password: "123456")
-user.photo.attach(io: File.open("app/assets/images/logo.png"), filename: "logo.png", content_type: "image/png")
-p user.photo.key
+puts "Instance de la city"
 
-Cloudinary::Api.resource(user.photo.key)
-
-city = City.create!(
+@city = City.create!(
   name: "Angers",
   latitude: "47.4711",
   longitude: "-0.547307",
@@ -22,3 +21,50 @@ city = City.create!(
   population: "123445"
   )
 
+puts "Instance des users"
+
+@user = User.create!(first_name: 'Cloé', last_name: 'Courage', address: "SS", email: "user@exemple.com", password: "user@exemple.com")
+@user.photo.attach(io: File.open("app/assets/images/cloe.png"), filename: "cloe.png", content_type: "image/png")
+
+
+puts "Création de Cloé terminée"
+
+@ambassador = User.create!(first_name: 'amba', last_name: 'ssador', address: "SS", email: "ambassador@exemple.com", password: "ambassador@exemple.com", city: @city)
+@ambassador.photo.attach(io: File.open("app/assets/images/ambassador.png"), filename: "ambassador.png", content_type: "image/png")
+
+
+puts "Création de l'ambassador terminé"
+
+puts "Instance des questions"
+
+@question_one = CityComment.create!(
+  content: "Trouve t'on des nougats dans cette ville ?",
+  city: @city,
+  user: @user
+  )
+
+@question_two = CityComment.create!(
+  content: "Ma question est-elle en mousse ?",
+  city: @city,
+  user: @user
+  )
+
+@question_three = CityComment.create!(
+  content: "Aimez-vous les tatanes ?",
+  city: @city,
+  user: @user
+  )
+
+puts "Instance des réponses"
+
+answer_one = Answer.create!(
+  comment: "On trouve de tout dans cette ville, même l'amour HAHAHA ;)",
+  city_comment: @question_one,
+  user: @ambassador
+  )
+
+answer_two = Answer.create!(
+  comment: "En tout cas elle ne casse pas des briques...",
+  city_comment: @question_two,
+  user: @ambassador
+  )

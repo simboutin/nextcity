@@ -1,0 +1,31 @@
+<!-- Title & Buttons -->
+<section class="py-4 mb-4" style="background-color: #F2F2F2; margin-top: 3.6rem;">
+  <div class="container d-flex justify-content-between">
+    <h1>Votre admin</h1>
+  </div>
+</section>
+<div class="container">
+  <p>Find me in app/views/admin/users/show.html.erb</p>
+
+  <% if current_user_is_ambassador? %>
+
+  <h5 class="">Les questions sur la ville</h5>
+
+  <div class="accordion mt-4 mb-4" id="accordionExample">
+    <% @comments.with_no_answer.each do |comment| %>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="heading<%= comment.id %>">
+        <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%= comment.id %>" aria-expanded="false" aria-controls="collapse<%= comment.id %>">
+          <%= comment.content %>
+        </button>
+      </h2>
+    </div>
+    <div class="card p-4">
+      <%= render "admin/answers/form", city: @city, comment: comment, answer: @answer %>
+    </div>
+    <% end %>
+  </div>
+
+  <% end %>
+</div>
+
