@@ -4,7 +4,7 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
-    @comments = @city.city_comments.with_answer
+    @comments = @city.city_comments
     @comment = CityComment.new
     authorize @city
   end

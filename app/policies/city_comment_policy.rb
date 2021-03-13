@@ -8,4 +8,8 @@ class CityCommentPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def ask_question?
+    user && user.ambassador == false
+  end
 end

@@ -1,29 +1,28 @@
 class Admin::AnswersController < ApplicationController
-
-  before_action :set_city
   before_action :set_user
 
   def create
     @answer = Answer.new(answer_params) # A affiner si plusieurs questions sur la vue admin
-    @answer.city_comment = @comment
+    @city = City.find(2) # A dynamiser avec le city_id de l'ambassador
+    @answer.city_comment_id = params[:city_comment_id]
     @answer.user = current_user
 
     if @answer.save
       redirect_to admin_user_path(@user), notice: "Réponse ajoutée"
     else
-      redirect_to admin_user_path(@user)
+      redirect_to admin_user_path(@user), notice: "Réponse ratée"
     end
-    authorize @comment
+    authorize @answer
   end
 
   private
 
   def set_user
-    @user == current_user
+    @user = current_user
   end
 
   def answer_params
-    params.require(:answer).permit(:content)
+    params.require(:answer).permit(:comment)
   end
 
 end

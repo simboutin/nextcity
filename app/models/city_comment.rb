@@ -5,6 +5,7 @@ class CityComment < ApplicationRecord
 
   validates :content, presence: true
 
-  scope :with_answer, -> { where(answer: true) }
-  scope :with_no_answer, -> { where(!with_answer)}
+  scope :with_no_answer, -> { includes(:answer).where(answer: { id: nil }) }
+  scope :with_answer, -> { includes(:answer).where.not(answer: { id: nil }) }
 end
+

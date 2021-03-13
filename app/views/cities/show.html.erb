@@ -6,28 +6,17 @@
   <p>Cette ville n'a pas encore de photo</p>
 <% end %>
 
-<h2><%= @comments.size %> commentaires sur la ville</h2>
-
-<p>
-  <%= render  partial: "city_comments/comment", collection: @comments %>
-</p>
-
-
-<%= link_to "Poser une question sur #{@city.name}", new_city_city_comment_path(@city) , class: "btn btn-primary" %>
-
-
-<br>
-<% if current_user_is_not_ambassador? %>
+<% if policy(CityComment).ask_question? %>
   <h5>Posez votre question aux ambassadeurs de <%= @city.name %></h5>
-  <div class="card p-4">
+  <div class="card p-4 mt-4 mb-4">
     <%= render "city_comments/form", city: @city, comment: @comment %>
   </div>
 <% end %>
 
 
-<h5>Les questions sur la ville</h5>
-<div class="accordion" id="accordionExample">
-  <% @comments.each do |comment| %>
+<h5 class="mt-4">Les questions sur la ville</h5>
+<div class="accordion mt-4" id="accordionExample">
+  <% @comments.with_answer.each do |comment| %>
   <div class="accordion-item">
     <h2 class="accordion-header" id="heading<%= comment.id %>">
       <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%= comment.id %>" aria-expanded="false" aria-controls="collapse<%= comment.id %>">
@@ -42,18 +31,17 @@
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
           </div>
           <p class="accordion-message ml-2 mb-0">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe magni possimus fugit omnis cupiditate voluptatum tenetur accusantium, commodi quam veritatis, vitae nihil praesentium error voluptates fugiat hic minus sapiente, aliquam.
+            <%= comment.answer.comment %>
           </p>
-        <% end %>
 
         </div>
         <div>
-          <small class="accordion-message-timestamp mt-0" >Réponse de Mitch Buchannon - 04 mars 2021</small>
+          <small class="accordion-message-timestamp mt-0" >Réponse de <%= comment.answer.user.first_name %></small>
         </div>
+        <% end %>
       </div>
     </div>
   </div>
   <% end %>
 </div>
 
-<%= pe = console %>
