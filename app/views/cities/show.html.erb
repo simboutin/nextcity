@@ -12,7 +12,7 @@
   <%= render  partial: "city_comments/comment", collection: @comments %>
 </p>
 
-<%= link_to 'Poser une question sur Anger', new_city_city_comment_path(@city) , class: "btn btn-primary" %>
+<%= link_to "Poser une question sur #{@city.name}", new_city_city_comment_path(@city) , class: "btn btn-primary" %>
 
 <br>
 <% if current_user_is_not_ambassador? %>

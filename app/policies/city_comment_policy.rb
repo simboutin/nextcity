@@ -5,8 +5,7 @@ class CityCommentPolicy < ApplicationPolicy
     end
   end
 
-
   def create?
-   true
+    true
   end
 end
