@@ -28,7 +28,7 @@
         <% if comment.answer %>
         <div class="d-flex p-2 align-self-center">
           <div>
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+            <%= cl_image_tag(comment.answer.user.photo.key) %>
           </div>
           <p class="accordion-message ml-2 mb-0">
             <%= comment.answer.comment %>

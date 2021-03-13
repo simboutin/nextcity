@@ -24,14 +24,14 @@ puts "Instance de la city"
 puts "Instance des users"
 
 @user = User.create!(first_name: 'Cloé', last_name: 'Courage', address: "SS", email: "user@exemple.com", password: "user@exemple.com")
-@user.photo.attach(io: File.open("app/assets/images/cloe.png"), filename: "logo.png", content_type: "image/png")
-@user.photo.key
+@user.photo.attach(io: File.open("app/assets/images/cloe.png"), filename: "cloe.png", content_type: "image/png")
+
 
 puts "Création de Cloé terminée"
 
 @ambassador = User.create!(first_name: 'amba', last_name: 'ssador', address: "SS", email: "ambassador@exemple.com", password: "ambassador@exemple.com", city: @city)
-@ambassador.photo.attach(io: File.open("app/assets/images/ambassador.png"), filename: "logo.png", content_type: "image/png")
-@ambassador.photo.key
+@ambassador.photo.attach(io: File.open("app/assets/images/ambassador.png"), filename: "ambassador.png", content_type: "image/png")
+
 
 puts "Création de l'ambassador terminé"
 
@@ -44,7 +44,13 @@ puts "Instance des questions"
   )
 
 @question_two = CityComment.create!(
-  content: "Vous aimez les tatanes ?",
+  content: "Ma question est-elle en mousse ?",
+  city: @city,
+  user: @user
+  )
+
+@question_three = CityComment.create!(
+  content: "Aimez-vous les tatanes ?",
   city: @city,
   user: @user
   )
@@ -54,5 +60,11 @@ puts "Instance des réponses"
 answer_one = Answer.create!(
   comment: "On trouve de tout dans cette ville, même l'amour HAHAHA ;)",
   city_comment: @question_one,
+  user: @ambassador
+  )
+
+answer_two = Answer.create!(
+  comment: "En tout cas elle ne casse pas des briques...",
+  city_comment: @question_two,
   user: @ambassador
   )
