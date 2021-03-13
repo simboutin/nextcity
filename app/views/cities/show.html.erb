@@ -20,8 +20,14 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="heading<%= comment.id %>">
       <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%= comment.id %>" aria-expanded="false" aria-controls="collapse<%= comment.id %>">
+        <div class="mr-3">
+          <%= cl_image_tag(comment.user.photo.key) %>
+        </div>
         <%= comment.content %>
-      </button>
+        <br>
+        <small class="accordion-message-timestamp mt-0" >Question de <%= comment.user.first_name %></small>
+        </button>
+
     </h2>
     <div id="collapse<%= comment.id %>" class="accordion-collapse collapse" aria-labelledby="heading<%= comment.id %>" data-parent="#accordionExample">
       <div class="accordion-body">
