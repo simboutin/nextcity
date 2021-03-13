@@ -8,10 +8,10 @@ class CitiesController < ApplicationController
     @comment = CityComment.new
     authorize @city
 
-  @marker = {
+  @markers = [{
             lat: @city.latitude,
             lng: @city.longitude
-              }
+              }]
   end
 
   private

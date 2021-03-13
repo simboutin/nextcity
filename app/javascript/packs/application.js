@@ -12,7 +12,7 @@ import { initMapbox } from '../plugins/init_mapbox'
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-initMapbox();
+
 
 
 // ----------------------------------------------------
@@ -31,6 +31,9 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   changeNavbarOnScroll();
+  initMapbox();
 });
+
+
 
 
