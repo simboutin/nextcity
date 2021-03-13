@@ -2,8 +2,7 @@ class Admin::UsersController < ApplicationController
   before_action :set_user
 
   def show
-    #A dynamiser quand on aura ajouté le city_id aux users
-    @city = City.find(2)
+    @city = @user.city
     @comments = @city.city_comments
     @answer = Answer.new
     @disable_container = true

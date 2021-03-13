@@ -3,7 +3,7 @@ class Admin::AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(answer_params) # A affiner si plusieurs questions sur la vue admin
-    @city = City.find(2) # A dynamiser avec le city_id de l'ambassador
+    @city = @user.city
     @answer.city_comment_id = params[:city_comment_id]
     @answer.user = current_user
 
