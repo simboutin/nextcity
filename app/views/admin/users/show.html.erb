@@ -5,27 +5,40 @@
   </div>
 </section>
 <div class="container">
-  <p>Find me in app/views/admin/users/show.html.erb</p>
+  <section>
+    <p>Find me in app/views/admin/users/show.html.erb</p>
 
-  <% if current_user_is_ambassador? %>
+    <% if current_user_is_ambassador? %>
+    <h2 class="">Les questions sur la ville</h2>
 
-  <h5 class="">Les questions sur la ville</h5>
-
-  <div class="accordion mt-4 mb-4" id="accordionExample">
-    <% @comments.with_no_answer.each do |comment| %>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="heading<%= comment.id %>">
-        <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%= comment.id %>" aria-expanded="false" aria-controls="collapse<%= comment.id %>">
-          <%= comment.content %>
-        </button>
-      </h2>
-    </div>
-    <div class="card p-4">
-      <%= render "admin/answers/form", city: @city, comment: comment, answer: @answer %>
+    <div class="accordion mt-4 mb-4" id="accordionExample">
+      <% @comments.with_no_answer.each do |comment| %>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading<%= comment.id %>">
+          <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%= comment.id %>" aria-expanded="false" aria-controls="collapse<%= comment.id %>">
+            <%= comment.content %>
+          </button>
+        </h2>
+      </div>
+      <div class="card p-4">
+        <%= render "admin/answers/form", city: @city, comment: comment, answer: @answer %>
+      </div>
+      <% end %>
     </div>
     <% end %>
-  </div>
+  </section>
 
-  <% end %>
+  <section>
+
+  </section>
+  <!-- Bookmarks -->
+  <section class="my-5">
+        <h2 class="mb-3">Vos favoris</h2>
+        <div class="cards">
+          <% if current_user.bookmarks.present? %>
+            <%= render partial: 'bookmarks/bookmark', collection: @bookmarks %>
+          <% end %>
+        </div>
+  </section>
+<!-- Bookmarks -->
 </div>
-
