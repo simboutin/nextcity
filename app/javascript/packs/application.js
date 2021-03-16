@@ -7,11 +7,11 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import { initMapbox } from '../plugins/init_mapbox'
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-
 
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
@@ -26,13 +26,15 @@ import "bootstrap";
 import { changeNavbarOnScroll } from '../components/change_navbar_on_scroll'
 import { toggleCityCriteriaButtonsCompartiment, toggleCityCriterionLine } from '../components/toggle_city_filters'
 import { initConversationalForm } from '../plugins/init_conversational_form'
-
+import { clickHeartButton } from '../components/click_heart_button'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   changeNavbarOnScroll();
+  initMapbox();
   toggleCityCriteriaButtonsCompartiment();
   toggleCityCriterionLine();
   initConversationalForm();
+  clickHeartButton();
 });

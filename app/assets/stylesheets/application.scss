@@ -11,6 +11,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import 'mapbox-gl/dist/mapbox-gl';
+
 
 
 html, body{
@@ -60,6 +62,7 @@ h3 {
   font-size: 1.3rem;
   color: $purple;
 }
+
 
 h5 {
   color: $purple;

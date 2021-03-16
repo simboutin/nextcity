@@ -6,7 +6,18 @@ class CitiesController < ApplicationController
     @city = City.find(params[:id])
     @comments = @city.city_comments
     @comment = CityComment.new
+    @has_current_bookmark = current_user.bookmark_for(@city).present?
+    if @has_current_bookmark
+      @bookmark = current_user.bookmark_for(@city)
+    else
+      @bookmark = Bookmark.new
+    end
     authorize @city
+
+    @markers = [{
+            lat: @city.latitude,
+            lng: @city.longitude
+              }]
   end
 
   def results

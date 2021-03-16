@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
 
   root to: 'pages#home'
@@ -8,7 +9,18 @@ Rails.application.routes.draw do
 
   resources :cities, only: [:show] do
     resources :city_comments, only: [:new, :create]
+    resources :bookmarks, only: :create
   end
 
   resources :searches, only: [:new, :create]
+
+  #definir le destroy
+  delete 'bookmarks/:id', to: 'bookmarks#destroy', as: :delete_bookmark
+
+  namespace :admin do
+    resources :users, only: [:show]
+    resources :city_comments, only: [] do
+      resources :answers, only: [:new, :create]
+    end
+  end
 end

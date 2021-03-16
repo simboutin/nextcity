@@ -1,4 +1,4 @@
-class CityCommentPolicy < ApplicationPolicy
+class BookmarkPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -9,7 +9,7 @@ class CityCommentPolicy < ApplicationPolicy
     true
   end
 
-  def ask_question?
-    user && user.ambassador == false
+  def destroy?
+    true
   end
 end
