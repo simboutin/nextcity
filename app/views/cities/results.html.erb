@@ -3,6 +3,9 @@
   <div class="container d-flex justify-content-between">
     <h1>3 villes sélectionnées pour vous</h1>
     <div class="d-flex">
+      <button id="edit-btn" class="round-btn mr-2">
+        <i class="fas fa-user"></i>
+      </button>
       <button id="refresh-btn" class="round-btn mr-2">
         <i class="fas fa-sync-alt"></i>
       </button>
@@ -63,7 +66,7 @@
   <!-- Home criterion -->
 
   <!-- Tourism criterion -->
-  <div id="tourism-criterion" class="criterion-line show">
+  <div id="tourisme-criterion" class="criterion-line show">
     <hr>
     <div class="results my-3">
       <%= render partial: "shared/city_tourism_criterion", collection: @cities, as: :item %>  
@@ -97,4 +100,3 @@
 
 </section>
 <!--Cities comparison -->
-

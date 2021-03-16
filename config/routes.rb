@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     resources :city_comments, only: [:new, :create]
   end
 
-
+  resources :searches, only: [:new, :create]
 end
