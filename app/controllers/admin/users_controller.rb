@@ -7,6 +7,7 @@ class Admin::UsersController < ApplicationController
     @answer = Answer.new
     @disable_container = true
     @disable_margins = true
+    @bookmarks = @user.bookmarks
   end
 
   private

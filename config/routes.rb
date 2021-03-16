@@ -9,7 +9,11 @@ Rails.application.routes.draw do
 
   resources :cities, only: [:show] do
     resources :city_comments, only: [:new, :create]
+    resources :bookmarks, only: :create
   end
+
+  #definir le destroy
+  delete 'bookmarks/:id', to: 'bookmarks#destroy', as: :delete_bookmark
 
   namespace :admin do
     resources :users, only: [:show]

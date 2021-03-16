@@ -27,6 +27,7 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { changeNavbarOnScroll } from '../components/change_navbar_on_scroll'
 import { toggleCityCriteriaButtonsCompartiment, toggleCityCriterionLine } from '../components/toggle_city_filters'
+import { clickHeartButton } from '../components/click_heart_button'
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -38,7 +39,7 @@ document.addEventListener('turbolinks:load', () => {
 
   toggleCityCriteriaButtonsCompartiment();
   toggleCityCriterionLine();
-
+  clickHeartButton();
 });
 
 
