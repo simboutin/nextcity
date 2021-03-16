@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(version: 2021_03_13_084452) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name", null: false
-    t.float "latitude"
-    t.float "longitude"
-    t.text "description"
-    t.integer "population"
+    t.float "latitude", null: false
+    t.float "longitude", null: false
+    t.text "description", null: false
+    t.integer "population", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "geo_shape"
