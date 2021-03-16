@@ -34,6 +34,9 @@ gem 'devise'
 # Authorization
 gem 'pundit'
 
+# For ElasticSearch
+gem 'searchkick'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
