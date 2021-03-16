@@ -11,7 +11,4 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :address, presence: true
   has_one_attached :photo
 
-  def bookmark_for(city)
-    bookmarks.find_by(city: city)
-  end
 end
