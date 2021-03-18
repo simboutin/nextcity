@@ -21,6 +21,8 @@ puts "Instance de la city"
   population: "123445"
   )
 
+@city.photo.attach(io: File.open("app/assets/images/angers.jpg"), filename: "angers.jpg", content_type: "image/png")
+
 puts "Instance des users"
 
 @user = User.create!(first_name: 'Cloé', last_name: 'Courage', address: "SS", email: "user@exemple.com", password: "user@exemple.com")

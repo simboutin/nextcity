@@ -1,0 +1,21 @@
+.banner {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(asset_path("angers.jpg"));
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  margin-top: 64px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.banner .badge {
+  // position: absolute;
+  // bottom: 20px;
+  font-size: 24px;
+  color: #34113F;
+  font-weight: bold;
+  padding: 15px;
+  border-radius: 32px;
+  background-color: #F4D160;
+}

@@ -15,11 +15,16 @@
   <body>
 
     <%= render 'shared/navbar' %>
-    
+
     <%= render 'shared/flashes' %>
-    
+
+    <% if @mega_banner %>
+      <%= render 'cities/city_banner' %>
+    <% end %>
+
     <div class="<%= 'container' unless @disable_container %> " style="<%= 'margin-top: 7rem; margin-bottom: 3.4rem;' unless @disable_margins %>">
-      <%= yield %>  
+
+      <%= yield %>
     </div>
 
     <%= render 'shared/footer' %>

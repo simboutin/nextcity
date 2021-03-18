@@ -8,10 +8,12 @@ class CitiesController < ApplicationController
     @comment = CityComment.new
     authorize @city
 
-  @markers = [{
+    @markers = [{
             lat: @city.latitude,
             lng: @city.longitude
               }]
+
+    @mega_banner = true
   end
 
   def results
