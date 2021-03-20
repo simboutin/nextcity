@@ -1,5 +1,5 @@
 class City < ApplicationRecord
-  searchkick
+  # searchkick
   has_many :users
   has_many :city_comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
