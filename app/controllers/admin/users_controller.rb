@@ -15,4 +15,7 @@ class Admin::UsersController < ApplicationController
   def set_user
     @user = current_user
   end
+
+  def tasks
+  end
 end
