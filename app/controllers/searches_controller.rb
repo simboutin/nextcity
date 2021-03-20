@@ -24,7 +24,8 @@ class SearchesController < ApplicationController
   def refresh
     search = Search.find(params[:id])
     authorize search
-    results(search)
+    results = @cities = policy_scope(City).where("name ILIKE ?", "%cherbourg%").or(policy_scope(City).where("name ILIKE ?", "%sables%")).or(policy_scope(City).where("name ILIKE ?", "%sète%")).to_a
+    search.cities_result = results
     if search.save
       redirect_to cities_results_path, notice: { body: "Découvrez votre nouvelle sélection", class: "wow" }
     else
@@ -48,8 +49,10 @@ class SearchesController < ApplicationController
   end
 
   def results(search)
-    results = policy_scope(City).search '*', body: query(search), limit: 3
-    search.cities_result = results.results
+    # results = policy_scope(City).search '*', body: query(search), limit: 3
+    # search.cities_result = results.results
+    results = @cities = policy_scope(City).where("name ILIKE ?", "%boulogne%").or(policy_scope(City).where("name ILIKE ?", "%arles%")).or(policy_scope(City).where("name ILIKE ?", "%rochefort%")).to_a
+    search.cities_result = results
   end
 
   def query(search)
