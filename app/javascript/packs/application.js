@@ -13,8 +13,6 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-
-
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
@@ -27,21 +25,16 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { changeNavbarOnScroll } from '../components/change_navbar_on_scroll'
 import { toggleCityCriteriaButtonsCompartiment, toggleCityCriterionLine } from '../components/toggle_city_filters'
+import { initConversationalForm } from '../plugins/init_conversational_form'
 import { clickHeartButton } from '../components/click_heart_button'
-
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   changeNavbarOnScroll();
-
   initMapbox();
-
   toggleCityCriteriaButtonsCompartiment();
   toggleCityCriterionLine();
+  initConversationalForm();
   clickHeartButton();
 });
-
-
-
-

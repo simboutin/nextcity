@@ -1,0 +1,37 @@
+<div class="col-12 col-sm-6 form-devise" style="background-color: #F4D160">
+
+  <%= form_with model: @search, id: "form", html: { "cf-form" => true }, remote: true do |f| %>
+    <cf-robot-message cf-questions="Bonjour <%= current_user.first_name %>"></cf-robot-message>
+    <cf-robot-message cf-questions='Commençons par un peu mieux se connaître'></cf-robot-message>
+    <%= f.text_field :job_title, { 'cf-questions' => 'Quel emploi recherchez-vous ?', 'cf-input-placeholder' => "Renseignez l'intitulé de votre emploi", 'required' => true } %>
+    <fieldset cf-questions="Vous êtes plutôt..." cf-input-placeholder="Renseignez votre préférence" class="radio-control" required>
+      <input cf-label="Mer/Lac" type="radio" cf-image="<%= asset_url('house.jpg') %>" name="search[environment]" tabindex="1" value="littoral">
+      <input cf-label="Montagne" type="radio" cf-image="<%= asset_url('appartment.jpg') %>" name="search[environment]" tabindex="2" value="montagne">
+    </fieldset>
+    <fieldset cf-questions="Quel est votre style de ville ?" cf-input-placeholder="Renseignez votre préférence" class="radio-control" required>
+      <input cf-label="Campagne" type="radio" name="search[city_type]" tabindex="1" value="rural">
+      <input cf-label="Urbaine" type="radio" name="search[city_type]" tabindex="2" value="urbain">
+    </fieldset>
+    <fieldset cf-questions="Vous aimeriez vivre dans une ville..." cf-input-placeholder="Renseignez votre préférence" class="radio-control">
+      <input cf-label="Petite" type="radio" name="search[city_size]" tabindex="1" value="Petite" cf-conditional-search[city_type]="urbain">
+      <input cf-label="Moyenne" type="radio" name="search[city_size]" tabindex="2" value="Moyenne" cf-conditional-search[city_type]="urbain">
+      <input cf-label="Grande" type="radio" name="search[city_size]" tabindex="3" value="Grande" cf-conditional-search[city_type]="urbain">
+    </fieldset>
+    <fieldset cf-questions="Vous préférerez vivre en..." cf-input-placeholder="Renseignez votre péférence" class="radio-control" required>
+      <input cf-label="Maison" type="radio" cf-image="<%= asset_url('house.jpg') %>" name="search[home_type]" tabindex="1" value="maison">
+      <input cf-label="Appart" type="radio" cf-image="<%= asset_url('appartment.jpg') %>" name="search[home_type]" tabindex="2" value="appart">
+    </fieldset>
+    <fieldset cf-questions="De quelle typologie ?" cf-input-placeholder="Renseignez la typologie" class="radio-control" required>
+      <input cf-label="T1" type="radio" name="search[home_category]" tabindex="1" value="T1">
+      <input cf-label="T2" type="radio" name="search[home_category]" tabindex="2" value="T2">
+      <input cf-label="T3" type="radio" name="search[home_category]" tabindex="3" value="T3">
+      <input cf-label="T4" type="radio" name="search[home_category]" tabindex="4" value="T4">
+    </fieldset>
+    <%= f.number_field :home_size, { 'cf-questions' => 'Quelle surface environ ?', 'cf-input-placeholder' => "Renseignez la surface en m²", 'required' => true } %>
+    <%= f.number_field :home_budget, { 'cf-questions' => 'Quel est votre budget logement ?', 'cf-input-placeholder' => "Renseignez votre budget en €", 'required' => true } %>
+    <%= f.submit %>
+  <% end %>
+
+  <div id="cf-context" class="dark-theme" role="cf-context" cf-context></div>
+
+</div>

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :bookmarks, only: :create
   end
 
+  resources :searches, only: [:new, :create]
+
   #definir le destroy
   delete 'bookmarks/:id', to: 'bookmarks#destroy', as: :delete_bookmark
 
@@ -26,5 +28,4 @@ Rails.application.routes.draw do
     end
 
   end
-
 end
