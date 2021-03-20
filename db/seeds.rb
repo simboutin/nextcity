@@ -58,7 +58,7 @@ puts "Instance de la city"
   job_ads: 10,
   home_ads: 24,
   rain_days: 54.1,
-  sun_hours: 2 635
+  sun_hours: 2635
 )
 
 @arles.photos.attach(io: File.open("app/assets/images/arles/arles.jpg"), filename: "arles.jpg", content_type: "image/jpg")
@@ -161,7 +161,7 @@ puts "Instance de la city"
   job_ads: 15,
   home_ads: 26,
   rain_days: 53.5,
-  sun_hours: 2 652
+  sun_hours: 2652
 )
 
 @sete.photos.attach(io: File.open("app/assets/images/sète/sète.jpg"), filename: "sète.jpg", content_type: "image/jpg")
@@ -262,7 +262,7 @@ puts "Instance de la city"
   job_ads: 12,
   home_ads: 9,
   rain_days: 125.7,
-  sun_hours: 1 854
+  sun_hours: 1854
 )
 
 @cherbourg.photos.attach(io: File.open("app/assets/images/cherbourg-en-cotentin/cherbourg-en-cotentin.jpg"), filename: "cherbourg-en-cotentin.jpg", content_type: "image/jpg")
@@ -313,7 +313,7 @@ puts "Instance de la city"
   job_ads: 4,
   home_ads: 44,
   rain_days: 125.3,
-  sun_hours: 1 454
+  sun_hours: 1454
 )
 
 @boulogne_sur_mer.photos.attach(io: File.open("app/assets/images/boulogne-sur-mer/boulogne-sur-mer.jpg"), filename: "boulogne-sur-mer.jpg", content_type: "image/jpg")
@@ -364,7 +364,7 @@ puts "Instance de la city"
   unemployment_rate: nil,
   tourism_structures_number: 7780,
   rain_days: 104.1,
-  sun_hours: 2 231
+  sun_hours: 2231
 )
 
 @lyon.photos.attach(io: File.open("app/assets/images/lyon/lyon.jpg"), filename: "lyon.jpg", content_type: "image/jpg")
@@ -414,7 +414,7 @@ puts "Instance de la city"
   unemployment_rate: nil,
   tourism_structures_number: 0,
   rain_days: 104.1,
-  sun_hours: 2 231
+  sun_hours: 2231
 )
 
 @marcy_letoile.photos.attach(io: File.open("app/assets/images/marcy-l-étoile/marcy-l-étoile.jpg"), filename: "marcy-l-étoile.jpg", content_type: "image/jpg")
