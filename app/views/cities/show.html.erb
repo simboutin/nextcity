@@ -22,7 +22,7 @@
       </div>
 
       <%= @city.description.to_s.gsub(/\n/, '<br/>').html_safe %>
-    
+
     </section>
 
     <section class="mt-4">
@@ -35,7 +35,7 @@
           <h2 class="accordion-header" id="heading<%= comment.id %>">
             <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%= comment.id %>" aria-expanded="false" aria-controls="collapse<%= comment.id %>">
               <div class="mr-3">
-                <%= cl_image_tag(comment.user.photo.key) %>
+                <%= cl_image_tag(comment.user.photo.key, class: "avatar") %>
               </div>
               <%= comment.content %>
               <br>
@@ -47,7 +47,7 @@
               <% if comment.answer %>
               <div class="d-flex p-2 align-self-center">
                 <div>
-                  <%= cl_image_tag(comment.answer.user.photo.key) %>
+                  <%= cl_image_tag(comment.answer.user.photo.key, class: "avatar") %>
                 </div>
                 <p class="accordion-message ml-2 mb-0">
                   <%= comment.answer.comment %>
@@ -63,7 +63,7 @@
         </div>
         <% end %>
       </div>
-      
+
       <% if policy(CityComment).ask_question? %>
         <div class="card p-4 mt-4 mb-4">
           <%= render "city_comments/form", city: @city, comment: @comment %>
@@ -71,13 +71,13 @@
       <% end %>
 
     </section>
-    
+
   </div>
 
   <div class="col-12 col-md-5">
 
     <section>
-  
+
       <div id="city-photos-carousel">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
@@ -110,7 +110,7 @@
         data-city-coordinates="<%= @city_coordinates.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-      
+
     </section>
 
   </div>
