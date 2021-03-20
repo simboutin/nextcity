@@ -6,6 +6,7 @@ const buildMap = (mapElement) => {
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10'
   });
+
 };
 
 const addMarkersToMap = (map, markers) => {
@@ -35,5 +36,6 @@ const initMapbox = () => {
     // map.scrollZoom.disable();
   }
 };
+
 
 export { initMapbox };
