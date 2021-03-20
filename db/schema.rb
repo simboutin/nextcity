@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_13_095657) do
+ActiveRecord::Schema.define(version: 2021_03_20_125819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(version: 2021_03_13_095657) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name", null: false
-    t.float "latitude", null: false
-    t.float "longitude", null: false
-    t.text "description", null: false
-    t.integer "population", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.text "description"
+    t.integer "population"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "geo_shape"
@@ -102,6 +102,10 @@ ActiveRecord::Schema.define(version: 2021_03_13_095657) do
     t.float "net_hourly_wage"
     t.float "unemployment_rate"
     t.integer "tourism_structures_number"
+    t.integer "job_ads"
+    t.integer "home_ads"
+    t.float "rain_days"
+    t.integer "sun_hours"
   end
 
   create_table "city_comments", force: :cascade do |t|
