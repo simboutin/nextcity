@@ -24,7 +24,7 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { changeNavbarOnScroll } from '../components/change_navbar_on_scroll'
-import { toggleCityCriteriaButtonsCompartiment, toggleCityCriterionLine } from '../components/toggle_city_filters'
+import { toggleCityCriteriaButtonsCompartiment, toggleCityCriterionLine, toggleCitySearchResume } from '../components/toggle_city_filters'
 import { initConversationalForm } from '../plugins/init_conversational_form'
 import { clickHeartButton } from '../components/click_heart_button'
 
@@ -35,6 +35,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   toggleCityCriteriaButtonsCompartiment();
   toggleCityCriterionLine();
+  toggleCitySearchResume();
   initConversationalForm();
   clickHeartButton();
 });

@@ -32,13 +32,15 @@
 
   </section>
   <!-- Bookmarks -->
+  <% if current_user.bookmarks.present? %>
   <section class="my-5">
-        <h2 class="mb-3">Vos favoris</h2>
-        <div class="cards">
-          <% if current_user.bookmarks.present? %>
-            <%= render partial: 'bookmarks/bookmark', collection: @bookmarks %>
-          <% end %>
-        </div>
+    <h2 class="mb-3">Vos favoris</h2>
+    <div class="cards">
+      <% @bookmarks.each do |bookmark| %>
+        <%= render 'shared/city_card', item: bookmark.city %>
+      <% end %>
+    </div>
   </section>
+  <% end %>
 <!-- Bookmarks -->
 </div>

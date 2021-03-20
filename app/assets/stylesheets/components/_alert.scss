@@ -4,3 +4,23 @@
   right: 16px;
   z-index: 1000;
 }
+
+.alert-info {
+  color: $purple;
+  background-color: $light-purple;
+  border-color: $mid-purple;
+  &.wow:before {
+    content: "\01F929";
+  }
+}
+
+.alert-warning {
+  color: $primary;
+  background-color: $light-purple;
+  border-color: $primary;
+  &:before {
+    // @extend .fas;
+    // @extend .fa-exclamation-triangle
+    content: "\026A0";
+  }
+}

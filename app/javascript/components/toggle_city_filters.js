@@ -1,24 +1,24 @@
 const toggleCityCriteriaButtonsCompartiment = () => {
-  const filters_button = document.querySelector('#criteria-btn');
-  if (filters_button) {
-    filters_button.addEventListener('click', (e) => {
+  const filtersButton = document.querySelector('#criteria-btn');
+  if (filtersButton) {
+    filtersButton.addEventListener('click', (e) => {
       e.preventDefault();
       const filters = document.querySelector('#criteria');
       if (filters.classList.contains('show')) {
         filters.classList.remove("show");
-        filters_button.classList.remove("active");
+        filtersButton.classList.remove("active");
       } else {
         filters.classList.add("show");
-        filters_button.classList.add("active");
+        filtersButton.classList.add("active");
       }
     });
   }
 }
 
 const toggleCityCriterionLine = () => {
-  const filter_buttons = document.querySelectorAll('.criterion');
-  if (filter_buttons) {
-    filter_buttons.forEach(button => {
+  const filterButtons = document.querySelectorAll('.criterion');
+  if (filterButtons) {
+    filterButtons.forEach(button => {
       button.addEventListener('click', (e) => {
         e.preventDefault();
         const filterId = `${button.innerText.toLowerCase()}-criterion`;
@@ -37,4 +37,22 @@ const toggleCityCriterionLine = () => {
   }
 }
 
-export { toggleCityCriteriaButtonsCompartiment, toggleCityCriterionLine };
+const toggleCitySearchResume = () => {
+  const searchResumeButton = document.querySelector('#search-resume-btn');
+  if (searchResumeButton) {
+    console.log('hello');
+    searchResumeButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      const searchResume = document.querySelector('#search-resume');
+      if (searchResume.classList.contains('show')) {
+        searchResume.classList.remove("show");
+        searchResumeButton.classList.remove("active");
+      } else {
+        searchResume.classList.add("show");
+        searchResumeButton.classList.add("active");
+      }
+    });
+  }
+}
+
+export { toggleCityCriteriaButtonsCompartiment, toggleCityCriterionLine, toggleCitySearchResume };
