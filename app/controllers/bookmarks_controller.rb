@@ -1,5 +1,4 @@
 class BookmarksController < ApplicationController
-
   def create
     @user = current_user
     @bookmark = Bookmark.new(bookmark_params)
@@ -7,7 +6,7 @@ class BookmarksController < ApplicationController
     if @bookmark.save
       redirect_to @bookmark.city, notice: 'Ville ajoutée en favoris'
     end
-      authorize @bookmark
+    authorize @bookmark
   end
 
   def destroy

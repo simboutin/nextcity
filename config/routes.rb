@@ -12,7 +12,11 @@ Rails.application.routes.draw do
     resources :bookmarks, only: :create
   end
 
-  resources :searches, only: [:new, :create]
+  resources :searches, only: [:new, :create] do
+    member do
+      patch 'refresh', to: "searches#refresh"
+    end
+  end
 
   #definir le destroy
   delete 'bookmarks/:id', to: 'bookmarks#destroy', as: :delete_bookmark

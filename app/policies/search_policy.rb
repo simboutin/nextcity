@@ -8,4 +8,8 @@ class SearchPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def refresh?
+    record.user == user
+  end
 end

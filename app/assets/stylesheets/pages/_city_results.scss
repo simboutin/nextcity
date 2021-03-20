@@ -4,6 +4,37 @@
   grid-gap: 2rem;
 }
 
+.tag {
+  padding: 5px 10px;
+  border-radius: 50px;
+  &.light-purple-tag {
+    background-color: $light-purple;
+  }
+  &.yellow-tag {
+    background-color: $yellow;
+  }
+}
+
+.region-name {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+
+.criterion-line {
+  max-height: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  transition: all 0.5s ease;
+  &.show {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
 #criteria {
   max-height: 0;
   width: 100%;
@@ -18,15 +49,16 @@
   }
 }
 
-.criterion-line {
+#search-resume {
   max-height: 0;
   width: 100%;
   margin: 0;
   padding: 0;
   opacity: 0;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
   &.show {
-    max-height: 500px;
+    max-height: 300px;
+    padding-top: 2rem;
     opacity: 1;
   }
 }

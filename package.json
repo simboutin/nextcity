@@ -6,6 +6,7 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.2.1",
+    "@turf/turf": "^6.3.0",
     "bootstrap": "^4.6.0",
     "conversational-form": "^1.0.2",
     "install": "^0.13.0",

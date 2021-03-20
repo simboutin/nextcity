@@ -1,5 +1,11 @@
 <div class="mt-4" style="font-size: 0.9rem;">
-  <strong>Région : <%= item.region_name %></strong><br>
-  <%= item.description || 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum animi...'%>
-  <div class="mt-2"><%= link_to 'En savoir plus', city_path(item) %></div>
+  <% if search.environment == "montagne" %>
+    <em><%= item.mountain %></strong></em><br>
+  <% end %>
+  <div>
+    <%= "#{item.description.squish.truncate_words(13, omission: "...")}" || 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum animi...'%>
+  </div>
+  <div class="mt-1">
+    <%= link_to 'En savoir plus', city_path(item) %>
+  </div>
 </div>

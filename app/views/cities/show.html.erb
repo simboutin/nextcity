@@ -1,73 +1,122 @@
-<h2><%= @city.name %></h2>
+<div class="row">
 
-<% if @city.photo.attached? %>
-<%= cl_image_tag @city.photo.key, height: 300, width: 400, crop: :fill %>
-<% else %>
-<p>Cette ville n'a pas encore de photo</p>
-<% end %>
+  <div class="col-12 col-md-7">
 
-<div class="section">
-    <div class="stage">
-      <% if @has_current_bookmark %>
-        <%= link_to delete_bookmark_path(@bookmark), method: :delete, remote: true do %>
-          <div class="heart is-active"></div>
-        <% end %>
-      <% else %>
-        <%= link_to city_bookmarks_path(@city), method: :post, remote: true do %>
-        <div class="heart"></div>
-        <% end %>
-    <% end %>
+    <section>
 
-    </div>
-
-</div>
-
-<% if policy(CityComment).ask_question? %>
-<h5>Posez votre question aux ambassadeurs de <%= @city.name %></h5>
-<div class="card p-4 mt-4 mb-4">
-  <%= render "city_comments/form", city: @city, comment: @comment %>
-</div>
-<% end %>
-
-
-<h5 class="mt-4">Les questions sur la ville</h5>
-<div class="accordion mt-4" id="accordionExample">
-  <% @comments.with_answer.each do |comment| %>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="heading<%= comment.id %>">
-      <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%= comment.id %>" aria-expanded="false" aria-controls="collapse<%= comment.id %>">
-        <div class="mr-3">
-          <%= cl_image_tag(comment.user.photo.key) %>
-        </div>
-        <%= comment.content %>
-        <br>
-        <small class="accordion-message-timestamp mt-0" >Question de <%= comment.user.first_name %></small>
-      </button>
-    </h2>
-    <div id="collapse<%= comment.id %>" class="accordion-collapse collapse" aria-labelledby="heading<%= comment.id %>" data-parent="#accordionExample">
-      <div class="accordion-body">
-        <% if comment.answer %>
-        <div class="d-flex p-2 align-self-center">
-          <div>
-            <%= cl_image_tag(comment.answer.user.photo.key) %>
+      <div id="header">
+        <h2><%= @city.name %></h2>
+        <% if user_signed_in? %>
+          <div id="heart-block">
+            <% if @has_current_bookmark %>
+              <%= link_to delete_bookmark_path(@bookmark), method: :delete, remote: true do %>
+                <div class="heart is-active"></div>
+              <% end %>
+            <% else %>
+              <%= link_to city_bookmarks_path(@city), method: :post, remote: true do %>
+              <div class="heart"></div>
+              <% end %>
+            <% end %>
           </div>
-          <p class="accordion-message ml-2 mb-0">
-            <%= comment.answer.comment %>
-          </p>
+        <% end %>
+      </div>
 
-        </div>
-        <div>
-          <small class="accordion-message-timestamp mt-0" >Réponse de <%= comment.answer.user.first_name %></small>
+      <%= @city.description.to_s.gsub(/\n/, '<br/>').html_safe %>
+    
+    </section>
+
+    <section class="mt-4">
+
+      <h5>Les réponses à vos questions</h5>
+
+      <div class="accordion mt-4" id="accordionExample">
+        <% @comments.with_answer.each do |comment| %>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="heading<%= comment.id %>">
+            <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse<%= comment.id %>" aria-expanded="false" aria-controls="collapse<%= comment.id %>">
+              <div class="mr-3">
+                <%= cl_image_tag(comment.user.photo.key) %>
+              </div>
+              <%= comment.content %>
+              <br>
+              <small class="accordion-message-timestamp mt-0" >Question de <%= comment.user.first_name %></small>
+            </button>
+          </h2>
+          <div id="collapse<%= comment.id %>" class="accordion-collapse collapse" aria-labelledby="heading<%= comment.id %>" data-parent="#accordionExample">
+            <div class="accordion-body">
+              <% if comment.answer %>
+              <div class="d-flex p-2 align-self-center">
+                <div>
+                  <%= cl_image_tag(comment.answer.user.photo.key) %>
+                </div>
+                <p class="accordion-message ml-2 mb-0">
+                  <%= comment.answer.comment %>
+                </p>
+
+              </div>
+              <div>
+                <small class="accordion-message-timestamp mt-0" >Réponse de <%= comment.answer.user.first_name %></small>
+              </div>
+              <% end %>
+            </div>
+          </div>
         </div>
         <% end %>
       </div>
-    </div>
+      
+      <% if policy(CityComment).ask_question? %>
+        <div class="card p-4 mt-4 mb-4">
+          <%= render "city_comments/form", city: @city, comment: @comment %>
+        </div>
+      <% end %>
+
+    </section>
+    
   </div>
-  <% end %>
+
+  <div class="col-12 col-md-5">
+
+    <section>
+  
+      <div id="city-photos-carousel">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <%= cl_image_tag @city.photos.first.key, quality: :auto, class: "city-photo" %>
+            </div>
+            <% @city.photos.drop(1).each do |photo| %>
+              <div class="carousel-item">
+                <%= cl_image_tag photo.key, quality: :auto, class: "city-photo" %>
+              </div>
+            <% end %>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="mt-4">
+
+      <div id="map"
+        data-markers="<%= @markers.to_json %>"
+        data-city-coordinates="<%= @city_coordinates.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+      
+    </section>
+
+  </div>
+
 </div>
-<br><br>
-<div id="map"
-style="width: 100%; height: 600px;"
-data-markers="<%= @markers.to_json %>"
-data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
+<div id="cta-block">
+  <button id="cta" class="btn btn-primary">J'y vais</button>
 </div>

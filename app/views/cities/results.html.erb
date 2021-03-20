@@ -3,12 +3,14 @@
   <div class="container d-flex justify-content-between">
     <h1>3 villes sélectionnées pour vous</h1>
     <div class="d-flex">
-      <button id="edit-btn" class="round-btn mr-2">
+      <button id="search-resume-btn" class="round-btn mr-2">
         <i class="fas fa-user"></i>
       </button>
-      <button id="refresh-btn" class="round-btn mr-2">
-        <i class="fas fa-sync-alt"></i>
-      </button>
+      <%= link_to refresh_search_path(@search), method: :patch, remote: true do %>
+        <button id="refresh-btn" class="round-btn mr-2">
+          <i class="fas fa-sync-alt"></i>
+        </button>
+      <% end %>
       <button id="criteria-btn" class="round-btn">
         <i class="fas fa-sliders-h"></i>
       </button>
@@ -17,15 +19,33 @@
 </section>
 <!-- Title -->
 
+<!-- Search resume -->
+<section id="search-resume">
+  <div class="container">
+    <div class="d-flex align-items-center">
+      <h2 class="mr-4 mb-0">Votre recherche</h2>
+      <span class="tag light-purple-tag mr-3"><%= @search.job_title.capitalize %></span>
+      <span class="tag light-purple-tag mr-3"><%= @search.environment.capitalize %></span>
+      <span class="tag light-purple-tag mr-3"><%= @search.city_type.capitalize %></span>
+      <span class="tag light-purple-tag mr-3">Ville <%= @search.city_size %></span>
+      <span class="tag light-purple-tag mr-3"><%= @search.home_type.capitalize %></span>
+      <span class="tag light-purple-tag mr-3"><%= @search.home_category.upcase %></span>
+      <span class="tag light-purple-tag mr-3"><%= @search.home_size %> m²</span>
+      <span class="tag light-purple-tag mr-3"><%= @search.home_budget %> €</span>
+    </div>
+  </div>
+</section>
+<!-- Search resume -->
+
 <!-- Criteria selection -->
 <section id="criteria">
   <div class="container">
     <div class="d-flex align-items-center">
-      <h2 class="mr-4 mb-0">Filtres</h2>
+      <h2 class="mr-4 mb-0">Critères</h2>
       <button class="btn btn-primary mr-2 criterion">Emploi</button>
       <button class="btn btn-primary mr-2 criterion">Logement</button>
-      <button class="btn btn-primary mr-2 criterion">Tourisme</button>
-      <button class="btn btn-primary mr-2 criterion">Internet</button>
+      <button class="btn btn-outline-primary mr-2 criterion">Tourisme</button>
+      <button class="btn btn-outline-primary mr-2 criterion">Internet</button>
       <button class="btn btn-primary mr-2 criterion">Météo</button>
     </div>
   </div>
@@ -35,6 +55,9 @@
 <!--Cities comparison -->
 <section class="container my-5">
 
+  <div class="results">
+    <%= render partial: "shared/city_region_name", collection: @cities, as: :item %>
+  </div>
   <!--City img -->
   <div class="results">
     <%= render partial: "shared/city_card", collection: @cities, as: :item %>
@@ -43,7 +66,7 @@
 
   <!--City description -->
   <div class="results mb-3">
-    <%= render partial: "shared/city_description", collection: @cities, as: :item %>  
+    <%= render partial: "shared/city_description", collection: @cities, as: :item, locals: { search: @search} %>  
   </div>
   <!--City description -->
 
@@ -60,13 +83,13 @@
   <div id="logement-criterion" class="criterion-line show">
     <hr>
     <div class="results my-3">
-      <%= render partial: "shared/city_home_criterion", collection: @cities, as: :item %>  
+      <%= render partial: "shared/city_home_criterion", collection: @cities, as: :item, locals: { search: @search} %>  
     </div>
   </div>
   <!-- Home criterion -->
 
   <!-- Tourism criterion -->
-  <div id="tourisme-criterion" class="criterion-line show">
+  <div id="tourisme-criterion" class="criterion-line">
     <hr>
     <div class="results my-3">
       <%= render partial: "shared/city_tourism_criterion", collection: @cities, as: :item %>  
@@ -75,7 +98,7 @@
   <!-- Tourism criterion -->
 
   <!-- Internet criterion -->
-  <div id="internet-criterion" class="criterion-line show">
+  <div id="internet-criterion" class="criterion-line">
     <hr>
     <div class="results my-3">
       <%= render partial: "shared/city_internet_criterion", collection: @cities, as: :item %>  
