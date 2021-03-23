@@ -8,7 +8,7 @@ p.accordion-message {
   border-radius:10px;
 }
 
-.accordion-message-timestamp{
+.accordion-message-timestamp {
   margin-left: 60px;
   color: #34113F;
   font-weight: lighter;
@@ -17,6 +17,7 @@ p.accordion-message {
 .accordion-button {
   position: relative;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   padding: $accordion-button-padding-y $accordion-button-padding-x;

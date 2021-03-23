@@ -1,9 +1,9 @@
 class CityPolicy < ApplicationPolicy
-  # class Scope < Scope
-  #   def resolve
-  #     scope.all
-  #   end
-  # end
+  class Scope < Scope
+    def resolve
+      scope.all.with_attached_photos
+    end
+  end
 
   def show?
     true
