@@ -1,4 +1,4 @@
-import mapboxgl from 'mapbox-gl';
+import mapboxgl from '!mapbox-gl';
 import * as turf from '@turf/turf';
 
 const buildMap = (mapElement) => {

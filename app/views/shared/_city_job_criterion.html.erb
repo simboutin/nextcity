@@ -1,9 +1,14 @@
-<div class="d-flex align-items-center">
+<div class="criterion<%= " best" if defined?(best) && best == item %>">
   <div class="mr-3">
-    <i class="fas fa-briefcase" style="color: #E7E2E8; font-size: 1.5rem;"></i>
+    <i class="fas fa-briefcase"></i>
   </div>
   <p class="mb-0">
-    15 offres<br>
-    <span class="text-muted" style="font-size: 0.9rem;">Emploi</span>
+  <% if search %>
+    <span class="criterion-number"><%= item.job_ads || 0 %></span> offres<br>
+    <span class="text-muted" style="font-size: 0.9rem;"><%= search.job_title %></span>
+  <% else %>
+    <span class="criterion-number"><%= number_with_delimiter(item.unemployment_rate, separator: ",") %> %</span><br>
+    <span class="text-muted" style="font-size: 0.9rem;">Chômage</span>
+  <% end %>
   </p>
 </div>

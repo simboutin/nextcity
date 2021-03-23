@@ -16,7 +16,7 @@ const toggleCityCriteriaButtonsCompartiment = () => {
 }
 
 const toggleCityCriterionLine = () => {
-  const filterButtons = document.querySelectorAll('.criterion');
+  const filterButtons = document.querySelectorAll('.criterion-btn');
   if (filterButtons) {
     filterButtons.forEach(button => {
       button.addEventListener('click', (e) => {

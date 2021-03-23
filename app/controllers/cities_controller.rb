@@ -5,6 +5,7 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
+    @search = current_user.searches.last
     @comments = @city.city_comments
     @comment = CityComment.new
     if user_signed_in?
@@ -20,6 +21,7 @@ class CitiesController < ApplicationController
     @markers = [{ lat: @city.latitude, lng: @city.longitude }]
     # @city_coordinates = JSON.parse(@city.geo_shape)["coordinates"]
     @city_coordinates = @city.geo_shape
+    @disable_container = true
   end
 
   def results

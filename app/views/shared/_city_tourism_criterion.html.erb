@@ -1,9 +1,11 @@
-<div class="d-flex align-items-center">
+<div class="criterion">
   <div class="mr-3">
-    <i class="fas fa-caravan" style="color: #E7E2E8; font-size: 1.5rem;"></i>
+    <i class="fas fa-caravan"></i>
   </div>
   <div>
-    <%= item.tourism_structures_number %> lieux d'accueil<br>
-    <span class="text-muted" style="font-size: 0.9rem;">Tourisme</span>
+    <span class="criterion-number"><%= item.tourism_range %></span><br>
+    <!-- 
+    <span class="text-muted" style="font-size: 0.9rem;"><%= number_with_delimiter(item.tourism_structures_number, delimiter: " ") %> chambres ou emplacements</span>
+    -->
   </div>
 </div>
