@@ -1,21 +1,26 @@
 <div class="col-12 col-sm-6 form-devise" style="background-color: #F4D160">
 
-  <%= form_with model: @search, id: "form", html: { "cf-form" => true }, remote: true do |f| %>
+  <div id="loader" class="my-3">
+    <div id="loader-map"></div>
+    <div id="loader-text">Merci pour vos réponses.<br><strong>Découvrez dans quelques secondes les villes qui vous correspondent le mieux...</strong></div>
+  </div>
+
+  <%= form_with model: @search, id: "form", html: { "cf-form" => true, "data-user-photo" => current_user.photo.url }, remote: true do |f| %>
     <cf-robot-message cf-questions="Bonjour <%= current_user.first_name %>"></cf-robot-message>
-    <% if current_user.searches.nil? %>
-      <cf-robot-message cf-questions='Commençons par un peu mieux se connaître'></cf-robot-message>
-    <% else %>
+    <% if current_user.searches.present? %>
       <cf-robot-message cf-questions="C'est parti pour une nouvelle recherche"></cf-robot-message>
+    <% else %>
+      <cf-robot-message cf-questions='Commençons par un peu mieux se connaître'></cf-robot-message>
     <% end %>
     <%= f.text_field :job_title, { 'cf-questions' => 'Quel emploi recherchez-vous ?', 'cf-input-placeholder' => "Renseignez l'intitulé de votre emploi", 'required' => true } %>
     <fieldset cf-questions="Vous êtes plutôt..." cf-input-placeholder="Renseignez votre préférence" class="radio-control" required>
-      <input cf-label="Mer/Lac" type="radio" cf-image="<%= asset_url('house.jpg') %>" name="search[environment]" tabindex="1" value="littoral">
-      <input cf-label="Montagne" type="radio" cf-image="<%= asset_url('appartment.jpg') %>" name="search[environment]" tabindex="2" value="montagne">
-      <input cf-label="Autre" type="radio" cf-image="<%= asset_url('appartment.jpg') %>" name="search[environment]" tabindex="2" value="autre">
+      <input cf-label="Mer/Lac" type="radio" cf-image="<%= asset_url('sea.jpg') %>" name="search[environment]" tabindex="1" value="littoral">
+      <input cf-label="Montagne" type="radio" cf-image="<%= asset_url('mountain.jpg') %>" name="search[environment]" tabindex="2" value="montagne">
+      <input cf-label="Autre" type="radio" cf-image="<%= asset_url('country.jpg') %>" name="search[environment]" tabindex="2" value="autre">
     </fieldset>
     <fieldset cf-questions="Quel est votre style de ville ?" cf-input-placeholder="Renseignez votre préférence" class="radio-control" required>
-      <input cf-label="Campagne" type="radio" name="search[city_type]" tabindex="1" value="rural">
-      <input cf-label="Urbaine" type="radio" name="search[city_type]" tabindex="2" value="urbain">
+      <input cf-label="Rural" type="radio" name="search[city_type]" tabindex="1" value="rural">
+      <input cf-label="Urbain" type="radio" name="search[city_type]" tabindex="2" value="urbain">
     </fieldset>
     <fieldset cf-questions="Vous aimeriez vivre dans une ville..." cf-input-placeholder="Renseignez votre préférence" class="radio-control">
       <input cf-label="Petite" type="radio" name="search[city_size]" tabindex="1" value="petite" cf-conditional-search[city_type]="urbain">
@@ -40,3 +45,5 @@
   <div id="cf-context" class="dark-theme" role="cf-context" cf-context></div>
 
 </div>
+
+

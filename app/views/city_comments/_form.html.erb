@@ -1,5 +1,5 @@
 <%= simple_form_for([city, comment]) do |f| %>
   <%= f.input :content, label: false, placeholder: "Une question sur la ville, les services, les évènements...
-Posez-la à un ambassadeur Nexter de #{city.name}", :input_html => {:rows => 3} %>
+Posez-la à un Nexter de #{city.name}", :input_html => {:rows => 3} %>
   <%= f.submit "Envoyer", class: "btn btn-outline-primary" %>
 <% end %>

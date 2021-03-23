@@ -1,10 +1,13 @@
- <div class="d-flex align-items-center">
+<div class="criterion<%= " best" if defined?(best) && best == item %>">
   <div class="mr-3">
-    <i class="fas fa-cloud-sun" style="color: #E7E2E8; font-size: 1.5rem;"></i>
+    <i class="fas fa-cloud-sun"></i>
   </div>
   <div>
-    100 jours de pluie<br>
-    1200 heures de soleil<br>
-    <span class="text-muted" style="font-size: 0.9rem;">Météo</span>
+    <% if item.rain_days %>
+      <span class="criterion-number"><%= item.rain_days.round %></span> jours de pluie<br>
+    <% end %>
+    <% if item.sun_hours %>
+      <span class="criterion-number"><%= number_with_delimiter(item.sun_hours, delimiter: " ") %></span> heures de soleil
+    <% end %>
   </div>
 </div>

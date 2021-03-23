@@ -19,107 +19,113 @@
 </section>
 <!-- Title -->
 
-<!-- Search resume -->
-<section id="search-resume">
-  <div class="container">
+<div class="container">
+
+  <!-- Search resume -->
+  <section id="search-resume">
     <div class="d-flex align-items-center">
-      <h2 class="mr-4 mb-0">Votre recherche</h2>
-      <span class="tag light-purple-tag mr-3"><%= @search.job_title.capitalize %></span>
-      <span class="tag light-purple-tag mr-3"><%= @search.environment.capitalize %></span>
-      <span class="tag light-purple-tag mr-3"><%= @search.city_type.capitalize %></span>
-      <span class="tag light-purple-tag mr-3">Ville <%= @search.city_size %></span>
-      <span class="tag light-purple-tag mr-3"><%= @search.home_type.capitalize %></span>
-      <span class="tag light-purple-tag mr-3"><%= @search.home_category.upcase %></span>
-      <span class="tag light-purple-tag mr-3"><%= @search.home_size %> m²</span>
-      <span class="tag light-purple-tag mr-3"><%= @search.home_budget %> €</span>
+      <h2 class="mb-0 mt-2" style="width: 160px">Votre recherche</h2>
+      <div class="d-flex flex-wrap">
+        <div class="tag light-purple-tag"><i class="fas fa-check-circle"></i> <%= @search.job_title.capitalize %></div>
+        <div class="tag light-purple-tag"><i class="fas fa-check-circle"></i> <%= @search.environment.capitalize %></div>
+        <div class="tag light-purple-tag"><i class="fas fa-check-circle"></i> 
+          <% if @search.city_type == "urbain" %>
+            <%= "#{@search.city_type.capitalize} : #{@search.city_size} ville" %>
+          <% else %>
+            <%= "#{@search.city_type.capitalize}" %>
+          <% end %>
+        </div>
+        <div class="tag light-purple-tag"><i class="fas fa-check-circle"></i> <%= "#{@search.home_type.capitalize} #{@search.home_category.upcase} de #{@search.home_size} m² pour #{@search.home_budget} €" %></div>
+      </div>
     </div>
-  </div>
-</section>
-<!-- Search resume -->
+  </section>
+  <!-- Search resume -->
 
-<!-- Criteria selection -->
-<section id="criteria">
-  <div class="container">
+  <!-- Criteria selection -->
+  <section id="criteria">
     <div class="d-flex align-items-center">
-      <h2 class="mr-4 mb-0">Critères</h2>
-      <button class="btn btn-primary mr-2 criterion">Emploi</button>
-      <button class="btn btn-primary mr-2 criterion">Logement</button>
-      <button class="btn btn-outline-primary mr-2 criterion">Tourisme</button>
-      <button class="btn btn-outline-primary mr-2 criterion">Internet</button>
-      <button class="btn btn-primary mr-2 criterion">Météo</button>
+      <h2 class="mb-0 mt-2" style="width: 160px">Critères</h2>
+      <div>
+        <button class="btn btn-primary criterion-btn">Emploi</button>
+        <button class="btn btn-primary criterion-btn">Logement</button>
+        <button class="btn btn-primary criterion-btn">Météo</button>
+        <button class="btn btn-outline-primary criterion-btn">Internet</button>
+        <button class="btn btn-outline-primary criterion-btn">Tourisme</button>
+      </div>
     </div>
-  </div>
-</section>
-<!-- Criteria selection -->
+  </section>
+  <!-- Criteria selection -->
 
-<!--Cities comparison -->
-<section class="container my-5">
+  <!--Cities comparison -->
+  <section class="my-5">
 
-  <div class="results">
-    <%= render partial: "shared/city_region_name", collection: @cities, as: :item %>
-  </div>
-  <!--City img -->
-  <div class="results">
-    <%= render partial: "shared/city_card", collection: @cities, as: :item %>
-  </div>
-  <!--City img -->
-
-  <!--City description -->
-  <div class="results mb-3">
-    <%= render partial: "shared/city_description", collection: @cities, as: :item, locals: { search: @search} %>  
-  </div>
-  <!--City description -->
-
-  <!-- Job criterion -->
-  <div id="emploi-criterion" class="criterion-line show">
-    <hr>
-    <div class="results my-3">
-      <%= render partial: "shared/city_job_criterion", collection: @cities, as: :item %>  
+    <div class="results">
+      <%= render partial: "shared/city_region_name", collection: @cities, as: :item %>
     </div>
-  </div>
-  <!-- Job criterion -->
-
-  <!-- Home criterion -->
-  <div id="logement-criterion" class="criterion-line show">
-    <hr>
-    <div class="results my-3">
-      <%= render partial: "shared/city_home_criterion", collection: @cities, as: :item, locals: { search: @search} %>  
+    <!--City img -->
+    <div class="results">
+      <%= render partial: "shared/city_card", collection: @cities, as: :item %>
     </div>
-  </div>
-  <!-- Home criterion -->
+    <!--City img -->
 
-  <!-- Tourism criterion -->
-  <div id="tourisme-criterion" class="criterion-line">
-    <hr>
-    <div class="results my-3">
-      <%= render partial: "shared/city_tourism_criterion", collection: @cities, as: :item %>  
+    <!--City description -->
+    <div class="results mb-3">
+      <%= render partial: "shared/city_description", collection: @cities, as: :item, locals: { search: @search } %>  
     </div>
-  </div>
-  <!-- Tourism criterion -->
+    <!--City description -->
 
-  <!-- Internet criterion -->
-  <div id="internet-criterion" class="criterion-line">
-    <hr>
-    <div class="results my-3">
-      <%= render partial: "shared/city_internet_criterion", collection: @cities, as: :item %>  
+    <!-- Job criterion -->
+    <div id="emploi-criterion" class="criterion-line show">
+      <hr>
+      <div class="results">
+        <%= render partial: "shared/city_job_criterion", collection: @cities, as: :item, locals: { search: @search, best: @cities.max_by(&:job_ads) } %>  
+      </div>
     </div>
-  </div>
-  <!-- Internet criterion -->
+    <!-- Job criterion -->
 
-  <!-- Weather criterion -->
-  <div id="météo-criterion" class="criterion-line show">
-    <hr>
-    <div class="results mt-3">
-      <%= render partial: "shared/city_weather_criterion", collection: @cities, as: :item %>  
+    <!-- Home criterion -->
+    <div id="logement-criterion" class="criterion-line show">
+      <hr>
+      <div class="results">
+        <%= render partial: "shared/city_home_criterion", collection: @cities, as: :item, locals: { search: @search, best: @cities.min_by(&:flats_rental_price) } %>  
+      </div>
     </div>
-  </div>
-  <!-- Weather criterion -->
+    <!-- Home criterion -->
 
-  <!-- City link -->
-  <div class="results">
-    <%= render partial: "shared/city_link", collection: @cities, as: :item %>  
-  </div>
-  <!-- City link -->
+    <!-- Weather criterion -->
+    <div id="météo-criterion" class="criterion-line show">
+      <hr>
+      <div class="results">
+        <%= render partial: "shared/city_weather_criterion", collection: @cities, as: :item, locals: { best: @cities.min_by(&:rain_days) } %>  
+      </div>
+    </div>
+    <!-- Weather criterion -->
 
-</section>
-<!--Cities comparison -->
+    <!-- Internet criterion -->
+    <div id="internet-criterion" class="criterion-line">
+      <hr>
+      <div class="results">
+        <%= render partial: "shared/city_internet_criterion", collection: @cities, as: :item, locals: { best: @cities.max_by(&:ftth_homes_rate) } %>  
+      </div>
+    </div>
+    <!-- Internet criterion -->
+
+    <!-- Tourism criterion -->
+    <div id="tourisme-criterion" class="criterion-line">
+      <hr>
+      <div class="results">
+        <%= render partial: "shared/city_tourism_criterion", collection: @cities, as: :item, locals: { best: @cities.max_by(&:tourism_structures_number) } %>  
+      </div>
+    </div>
+    <!-- Tourism criterion -->
+
+    <!-- City link -->
+    <div id="city-links" class="results">
+      <%= render partial: "shared/city_link", collection: @cities, as: :item %>  
+    </div>
+    <!-- City link -->
+
+  </section>
+  <!--Cities comparison -->
+
+</div>

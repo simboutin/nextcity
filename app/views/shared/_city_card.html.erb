@@ -1,5 +1,5 @@
 <%= link_to city_path(item) do %>
-  <div class="default-card card-city" style="background-image: url(
+  <div class="default-card card-city m-3" style="background-image: url(
       <% if item.photos.attached? %>
         <%= cloudinary_url(item.photos.first.key, quality: :auto, crop: :fill) %>
       <% else %>

@@ -20,9 +20,8 @@ $warning:    $orange;
 $light:      white;
 
 // Acordions
-
-$accordion-button-padding-y: 15px;
-$accordion-button-padding-x: 15px;
+$accordion-button-padding-y: 1.3rem;
+$accordion-button-padding-x: 1.3rem;
 $accordion-button-color: $pink;
 $accordion-button-active-color:$gray;
 $accordion-button-bg: white;
@@ -35,9 +34,9 @@ $accordion-transition: 0;
 $accordion-button-active-icon: none;
 $accordion-icon-transform: none;
 $accordion-icon-width:none;
-$accordion-border-radius: 4px;
-$accordion-body-padding-y: 10px;
-$accordion-body-padding-x: 10px;
+$accordion-border-radius: 16px;
+$accordion-body-padding-y: 1.3rem;
+$accordion-body-padding-x: 1.3rem;
 
 
 // Buttons & inputs' radius

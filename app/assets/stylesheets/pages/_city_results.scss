@@ -1,26 +1,35 @@
 .results {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 2rem;
+  // grid-gap: 2rem;
 }
 
 .tag {
   padding: 5px 10px;
   border-radius: 50px;
+  margin: 0.5rem 0.5rem 0.5rem 0;
   &.light-purple-tag {
     background-color: $light-purple;
   }
-  &.yellow-tag {
+  &.yellow-tag {    
     background-color: $yellow;
+    margin: 0;
+  }
+  i {
+    color: $purple;
   }
 }
 
 .region-name {
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 1rem;
+  margin-right: 1rem;
 }
 
+.criterion-number {
+  color: $purple;
+  font-weight: bold;
+}
 
 .criterion-line {
   max-height: 0;
@@ -35,7 +44,25 @@
   }
 }
 
+.criterion {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  i {
+    color: $mid-purple;
+    font-size: 1.5rem;
+  }
+  &.best {
+    background-color: $light-purple;
+    i {
+      color: $purple;
+    }
+  }
+}
+
 #criteria {
+  position: relative;
+  z-index: 50;
   max-height: 0;
   width: 100%;
   margin: 0;
@@ -44,7 +71,7 @@
   transition: all 0.3s ease;
   &.show {
     max-height: 300px;
-    padding-top: 2rem;
+    margin-top: 1rem;
     opacity: 1;
   }
 }
@@ -57,8 +84,14 @@
   opacity: 0;
   transition: all 0.3s ease;
   &.show {
+    display: block;
     max-height: 300px;
-    padding-top: 2rem;
+    margin: 1rem 0;
     opacity: 1;
   }
+}
+
+#city-links {
+  position: relative;
+  z-index: 100;
 }

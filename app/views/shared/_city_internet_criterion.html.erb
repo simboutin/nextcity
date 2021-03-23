@@ -1,9 +1,9 @@
-<div class="d-flex align-items-center">
+<div class="criterion<%= " best" if defined?(best) && best == item %>">
   <div class="mr-3">
-    <i class="fas fa-wifi" style="color: #E7E2E8; font-size: 1.5rem;"></i>
+    <i class="fas fa-wifi"></i>
   </div>
   <p class="mb-0">
-    <%= item.ftth_homes_rate.round %> % de logements éligibles à la fibre<br>
-    <span class="text-muted" style="font-size: 0.9rem;">Internet</span>
+    <span class="criterion-number"><%= item.ftth_homes_rate.round %> %</span><br>
+    <span class="text-muted" style="font-size: 0.9rem;">Logements fibrés</span>
   </p>
 </div>

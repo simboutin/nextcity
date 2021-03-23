@@ -96,6 +96,11 @@
   background-repeat: no-repeat;
   // background-position: 11px 12px;
 }
+
+.dark-theme .conversational-form cf-chat-response text>p.hasImage>span {
+  background: none;
+}
+
 .dark-theme .conversational-form cf-input {
   background: $info;
 }
@@ -149,7 +154,8 @@
 }
 .dark-theme .conversational-form .cf-button {
   color: $primary;
-  border-color: #dddddd;
+  // border-color: #dddddd;
+  border: none;
   font-size: 0.9rem;
   transition: opacity var(--cf-anim-time) var(--anim-easeOut),
     border-color var(--cf-anim-time) var(--anim-easeOut),
@@ -173,15 +179,17 @@
 }
 
 .dark-theme .conversational-form .cf-button cf-radio {
-  background: var(--cf-color-black-alpha02);
+  background: $light-purple;
 }
+
 .dark-theme .conversational-form .cf-button.highlight,
 .dark-theme .conversational-form .cf-button:focus,
 .dark-theme .conversational-form .cf-button:hover,
 .dark-theme .conversational-form .cf-button[checked="checked"],
 .dark-theme .conversational-form .cf-button.selected {
-  border-color: #5e5e5e;
-  color: var(--cf-color-black-alpha02);
+  // border-color: #5e5e5e;
+  background: $mid-purple;
+  color: $primary;
 }
 .dark-theme .conversational-form .cf-button.highlight cf-radio,
 .dark-theme .conversational-form .cf-button.highlight cf-radio,
@@ -198,8 +206,18 @@
 .dark-theme .conversational-form .cf-button.selected cf-radio,
 .dark-theme .conversational-form .cf-button.selected cf-radio,
 .dark-theme .conversational-form .cf-button.selected cf-radio {
-  background: var(--cf-color-black);
+  background: $mid-purple;
 }
+
+.dark-theme .conversational-form cf-radio-button.cf-button cf-radio {
+  border: 1px solid $primary;
+}
+
+.dark-theme .conversational-form cf-radio-button.cf-button[checked="checked"] {
+  background: $purple !important;
+  color: #e5e6ea !important;
+}
+
 .dark-theme .conversational-form cf-list-button:after {
   background-image: none;
   background: black;
@@ -221,4 +239,60 @@
   position: relative; 
   transform: matrix(1, 0, 0, 1, 0, 0);
   opacity: 1;
+}
+
+#loader {
+  padding: 4rem;
+  display: none;
+}
+
+#loader-text {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+#loader-map {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  margin: auto;
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    animation: 1s ease-in-out infinite
+  }
+  &::before {
+    width: 28px;
+    height: 28px;
+    top: calc(50% - 16px); 
+    left: calc(50% - 16px);
+    border-bottom-right-radius: 0;
+    box-shadow: 0 0 0 2px $primary;
+    background: radial-gradient(transparent 0, transparent 5px, $primary 5px);
+    transform: rotate(45deg);
+    animation-name: mapPin
+  }
+  &::after {
+    width: 8px;
+    height: 4px;
+    opacity: 0.8;
+    top: 100%;
+    left: calc(50% - 6px);
+    background: $primary;
+    animation-name: mapPinShadow
+  }
+}
+  
+@keyframes mapPin {
+  50% {
+    transform: rotate(45deg) translate(-50%, -50%)
+  }
+}
+
+@keyframes mapPinShadow {
+  50% {
+    transform: scaleX(3);
+    opacity: 0.2
+  }
 }
