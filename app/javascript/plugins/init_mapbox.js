@@ -8,7 +8,6 @@ const buildMap = (mapElement) => {
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10'
   });
-
 };
 
 const addMarkersToMap = (map, markers) => {
@@ -28,7 +27,7 @@ const fitMapToMarkers = (map, markers) => {
 
 const fitToPolygon = (map, geojson) => {
   const bbox = turf.bbox(geojson);
-  map.fitBounds(bbox, { padding: 70, maxZoom: 12, duration: 3000 });
+  map.fitBounds(bbox, { padding: 70, maxZoom: 12 });
 }
 
 const buildPolygon = (map, geojson) => {
@@ -53,23 +52,23 @@ const buildPolygon = (map, geojson) => {
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
-  const cityCoordinates = JSON.parse(mapElement.dataset.cityCoordinates);
-  const geojson = {
-    'type': 'FeatureCollection',
-    'features': [
-      {
-      'type': 'Feature',
-      'geometry': cityCoordinates
-      }
-    ]
-  };
   if (mapElement) {
+    const cityCoordinates = JSON.parse(mapElement.dataset.cityCoordinates);
+    const geojson = {
+      'type': 'FeatureCollection',
+      'features': [
+        {
+        'type': 'Feature',
+        'geometry': cityCoordinates
+        }
+      ]
+    };
     const map = buildMap(mapElement);
     // const markers = JSON.parse(mapElement.dataset.markers);
     buildPolygon(map, geojson);
+    map.addControl(new mapboxgl.NavigationControl());
     // addMarkersToMap(map, markers);
     // fitMapToMarkers(map, markers);
-    map.addControl(new mapboxgl.NavigationControl());
     // map.scrollZoom.disable();
   }
 };
