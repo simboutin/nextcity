@@ -5,10 +5,10 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
-    @search = current_user.searches.last
     @comments = @city.city_comments
     @comment = CityComment.new
     if user_signed_in?
+      @search = current_user.searches.last
       @has_current_bookmark = current_user.bookmark_for(@city).present?
       if @has_current_bookmark
         @bookmark = current_user.bookmark_for(@city)
