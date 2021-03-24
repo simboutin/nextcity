@@ -1,4 +1,5 @@
 import mapboxgl from '!mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import * as turf from '@turf/turf';
 
 const buildMap = (mapElement) => {
@@ -7,7 +8,6 @@ const buildMap = (mapElement) => {
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10'
   });
-
 };
 
 const addMarkersToMap = (map, markers) => {
@@ -25,47 +25,50 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 12, duration: 0 });
 };
 
-const buildPolygon = (map) => {
-  const mapElement = document.getElementById('map');
-  const cityCoordinates = JSON.parse(mapElement.dataset.cityCoordinates);
-  const geojson = {
-    'type': 'FeatureCollection',
-    'features': [
-    {
-    'type': 'Feature',
-    'geometry': cityCoordinates
-    }
-    ]
-    };
+const fitToPolygon = (map, geojson) => {
+  const bbox = turf.bbox(geojson);
+  map.fitBounds(bbox, { padding: 70, maxZoom: 12 });
+}
+
+const buildPolygon = (map, geojson) => {
   map.on('load', function () {
-    map.addSource('maine', {
-    'type': 'geojson',
-    'data': geojson
+    map.addSource('polygon', {
+      'type': 'geojson',
+      'data': geojson
     });
     map.addLayer({
-    'id': 'maine',
-    'type': 'fill',
-    'source': 'maine',
-    'layout': {},
-    'paint': {
-    'fill-color': '#34113F',
-    'fill-opacity': 0.8
-    }
+      'id': 'polygon',
+      'type': 'fill',
+      'source': 'polygon',
+      'layout': {},
+      'paint': {
+      'fill-color': '#34113F',
+      'fill-opacity': 0.8
+      }
     });
-    const bbox = turf.bbox(geojson);
-    map.fitBounds(bbox, { padding: 70, maxZoom: 12, duration: 3000 });
+    fitToPolygon(map, geojson);
   });
-}
+};
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
   if (mapElement) {
+    const cityCoordinates = JSON.parse(mapElement.dataset.cityCoordinates);
+    const geojson = {
+      'type': 'FeatureCollection',
+      'features': [
+        {
+        'type': 'Feature',
+        'geometry': cityCoordinates
+        }
+      ]
+    };
     const map = buildMap(mapElement);
-    const markers = JSON.parse(mapElement.dataset.markers);
-    buildPolygon(map);
+    // const markers = JSON.parse(mapElement.dataset.markers);
+    buildPolygon(map, geojson);
+    map.addControl(new mapboxgl.NavigationControl());
     // addMarkersToMap(map, markers);
     // fitMapToMarkers(map, markers);
-    map.addControl(new mapboxgl.NavigationControl());
     // map.scrollZoom.disable();
   }
 };
