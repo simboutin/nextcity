@@ -558,33 +558,74 @@ puts "Création des ambassadeurs terminé"
 puts "Instance des questions"
 
 @question_one = CityComment.create!(
-  content: "Trouve t'on des nougats dans cette ville ?",
+  content: "Que pensez-vous du cadre de vie dans cette ville ?",
   city: @cherbourg,
   user: @thibault
   )
 
 @question_two = CityComment.create!(
-  content: "Ma question est-elle en mousse ?",
+  content: "J'ai entendu dire que la ville était sale, vous en pensez quoi ?",
   city: @cherbourg,
   user: @alexandre
   )
 
 @question_three = CityComment.create!(
-  content: "Aimez-vous les tatanes ?",
+  content: "Appréciez-vous vraiment la mer ?",
   city: @cherbourg,
-  user: @thibault
+  user: @antoine
+  )
+
+@question_four = CityComment.create!(
+  content: "J'hésite à quitter Lyon pour Cherbourg-en-Cotentin. Des avis ?",
+  city: @cherbourg,
+  user: @joseph
+  )
+
+@question_five = CityComment.create!(
+  content: "Nous voudrions habiter sur notre bateau dans cette ville. Quel port nous conseillez-vous ?",
+  city: @cherbourg,
+  user: @yann
   )
 
 puts "Instance des réponses"
 
 answer_one = Answer.create!(
-  comment: "On trouve de tout dans cette ville, même l'amour HAHAHA ;)",
+  comment: "Etant un cadre dynamique ayant quitté Paris il y'a peu, je ne regrette pas du tout mon choix.
+  C'est une ville magnifique, calme et très agréable à vivre. La bibliothèque municipale est refaite à neuf.
+  Il y'a aussi le beau théâtre à l'italienne et vous trouverez des piscines propres avec des services très convenables (jacuzzi, hammam) etc.",
   city_comment: @question_one,
-  user: @antoine
+  user: @matthieu
   )
 
 answer_two = Answer.create!(
-  comment: "En tout cas elle ne casse pas des briques...",
+  comment: "Bonjour Alexandre.
+  Comme dans toutes les villes, ils arrivent que les rues soient parfois sales, mais dans l'ensemble c'est très correct.
+  Le seul reproche que je pourrai lui faire serait le manque de parcs pour pouvoir s'évader un peu plus.",
   city_comment: @question_two,
+  user: @fabien
+  )
+
+answer_three = Answer.create!(
+  comment: "Oui, la mer est jolie ici, oui c'est agréable de la voir.
+  Mais elle est glaciale, il est très difficile de s'y baigner même en plein été.
+  Au final, on ne peut pas beaucoup en profiter (2/3 mois dans l'année)
+  étant donné que la météo est trop instable ici.",
+  city_comment: @question_three,
+  user: @matthieu
+  )
+
+answer_four = Answer.create!(
+  comment: " La qualité de vie en général est géniale !
+  C'est une ville où l'on se sent en sécurité dans un environnement magnifique.
+  Le coût de la vie y est bien moindre qu'ailleurs, logements, assurances... Il n'y a pas d'embouteillages, quasiment pas de pollution,
+  les classes à l'école ne sont pas surchargées et l'environnement scolaire est plus que favorable à l'équilibre des enfants. Une ville à taille humaine dans laquelle on peut se déplacer facilement à pied sans être obligé de prendre la voiture constamment.",
+  city_comment: @question_four,
+  user: @fabien
+  )
+
+answer_five = Answer.create!(
+  comment: "J'ai vécu 2 ans sur un voilier à port chantereyne, la marina est certainement l'une des meilleures de toute la Normandie. Moderne, accueil parfait, sanitaires impeccables, propreté des pontons, personnel aimable, citoyens brut de pommes mais conviviaux attachants,
+  environnement naturel appréciable sauf que le problème est le climat pluvieux. Mais l'idéal n'exizte pas :)",
+  city_comment: @question_five,
   user: @matthieu
   )
