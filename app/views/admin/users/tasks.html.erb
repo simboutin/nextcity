@@ -1,5 +1,5 @@
 
-<h1>Partir à .. <%= %> </h1>
+<h1>Partir à <%= @user.city.name %> :-) <%= %> </h1>
 
 
 <div class="row">
@@ -24,7 +24,7 @@
         Carte grise et permis de conduire
       </a>
        <a class="nav-link" id="v-pills-liste-tab" data-toggle="pill" href="#v-pills-liste" role="tab" aria-controls="v-pills-liste" aria-selected="false">
-        Liste électorales
+        Papiers d'identité & Listes électorales
       </a>
        <a class="nav-link" id="v-pills-eau-tab" data-toggle="pill" href="#v-pills-eau" role="tab" aria-controls="v-pills-eau" aria-selected="false">
         Eau, éléctricité et gaz
@@ -48,22 +48,23 @@
         Que je vive seul(e) ou en couple, je peux solliciter ma mairie ou mon département pour éventuellement obtenir des aides financières pour déménager (facture déménageur, location camion, ...) ou m'installer (achat du mobilier de 1re nécessité, ...), notamment par le biais du Fonds de solidarité pour le logement (FSL).
       </div>
       <div class="tab-pane fade" id="v-pills-emploi" role="tabpanel" aria-labelledby="v-pills-emploi-tab">
-        Voici un lien vers les annonces d'emploi dans la ville de votre choix : ajouter lien vers indeed.
+        Voici un lien vers les annonces de .. https://fr.indeed.com/
       </div>
       <div class="tab-pane fade" id="v-pills-courrier" role="tabpanel" aria-labelledby="v-pills-courrier-tab">
         Je peux faire réexpédier mon courrier en utilisant le service payant de La Poste :
       </div>
       <div class="tab-pane fade" id="v-pills-liste" role="tabpanel" aria-labelledby="v-pills-liste-tab">
         Je dois m'inscrire sur les listes électorales de ma nouvelle commune (ou de mon nouvel arrondissement, à Paris, Lyon et Marseille).
+        Je n'ai pas besoin de demander la modification de l'adresse qui figure sur ma carte nationale d'identité et mon passeport.
       </div>
       <div class="tab-pane fade" id="v-pills-eau" role="tabpanel" aria-labelledby="v-pills-eau-tab">
-        Le fournisseur [] est celui ayant les meilleurs tarifs. Cliquez sur ce lien pour souscrire :
+        Le fournisseur Total Energie est celui ayant les meilleurs tarifs. Cliquez sur ce lien pour souscrire :
       </div>
     </div>
   </div>
 </div>
 
-
+<%= console %>
 
 
 

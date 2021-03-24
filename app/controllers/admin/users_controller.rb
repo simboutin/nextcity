@@ -10,12 +10,15 @@ class Admin::UsersController < ApplicationController
     @bookmarks = @user.bookmarks
   end
 
+  def tasks
+    @search = @user.searches.last
+  end
+
   private
 
   def set_user
     @user = current_user
   end
 
-  def tasks
-  end
+
 end
