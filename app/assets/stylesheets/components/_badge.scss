@@ -24,3 +24,34 @@
     background-color: $dark-pink;  
   }
 }
+
+.partner-badge {
+  position: relative;
+  border-radius: $border-radius;
+  border: 1px solid #E5E5E5;
+  padding: 1.3rem;
+  margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.15s ease-in-out;
+  img {
+    width: 150px;
+  }
+  &:hover {
+    background-color: $light-purple;
+  }
+}
+
+.number-badge {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $yellow;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+  color: $purple;
+}

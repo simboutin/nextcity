@@ -1,72 +1,192 @@
-
-<h1>Partir à <%= @user.city.name %> :-) <%= %> </h1>
-
-
-<div class="row">
-  <div class="col-3">
-    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link active" id="v-pills-logement-tab" data-toggle="pill" href="#v-pills-logement" role="tab" aria-controls="v-pills-logement" aria-selected="true">
-        Démarches logement
-      </a>
-      <a class="nav-link" id="v-pills-enfants-tab" data-toggle="pill" href="#v-pills-enfants" role="tab" aria-controls="v-pills-enfants" aria-selected="false">
-        Enfants et écoles
-      </a>
-      <a class="nav-link" id="v-pills-aides-tab" data-toggle="pill" href="#v-pills-aides" role="tab" aria-controls="v-pills-aides" aria-selected="false">
-        Aides financière au déménagement
-      </a>
-      <a class="nav-link" id="v-pills-emploi-tab" data-toggle="pill" href="#v-pills-emploi" role="tab" aria-controls="v-pills-emploi" aria-selected="false">
-        Emploi
-      </a>
-      <a class="nav-link" id="v-pills-courrier-tab" data-toggle="pill" href="#v-pills-courrier" role="tab" aria-controls="v-pills-courrier" aria-selected="false">
-        Courrier et changement d'adresse
-      </a>
-      <a class="nav-link" id="v-pills-cartegrise-tab" data-toggle="pill" href="#v-pills-cartegrise" role="tab" aria-controls="v-pills-cartegrise" aria-selected="false">
-        Carte grise et permis de conduire
-      </a>
-       <a class="nav-link" id="v-pills-liste-tab" data-toggle="pill" href="#v-pills-liste" role="tab" aria-controls="v-pills-liste" aria-selected="false">
-        Papiers d'identité & Listes électorales
-      </a>
-       <a class="nav-link" id="v-pills-eau-tab" data-toggle="pill" href="#v-pills-eau" role="tab" aria-controls="v-pills-eau" aria-selected="false">
-        Eau, éléctricité et gaz
-      </a>
-
-
-
-    </div>
-  </div>
-  <div class="col-9">
-    <div class="tab-content" id="v-pills-tabContent">
-      <div class="tab-pane fade show active" id="v-pills-logement" role="tabpanel" aria-labelledby="v-pills-logement-tab">
-        Je dois informer mon bailleur en respectant un délai de préavis pouvant aller de 1 à 3 mois avant le déménagement.
-        Je récupérerai le dépôt de garantie versé auprès de ce propriétaire dans le mois ou les 2 mois qui suivent mon déménagement.
-      </div>
-      <div class="tab-pane fade" id="v-pills-enfants" role="tabpanel" aria-labelledby="v-pills-enfants-tab">
-        N'ayez pas d'enfants, vous ferez des économies
-        Sinon, Si vos enfants sont à l'école maternelle ou primaire, il faut demander à changer d'établissement ou maintenir les enfants dans leur ancienne école.
-      </div>
-      <div class="tab-pane fade" id="v-pills-aides" role="tabpanel" aria-labelledby="v-pills-aides-tab">
-        Que je vive seul(e) ou en couple, je peux solliciter ma mairie ou mon département pour éventuellement obtenir des aides financières pour déménager (facture déménageur, location camion, ...) ou m'installer (achat du mobilier de 1re nécessité, ...), notamment par le biais du Fonds de solidarité pour le logement (FSL).
-      </div>
-      <div class="tab-pane fade" id="v-pills-emploi" role="tabpanel" aria-labelledby="v-pills-emploi-tab">
-        Voici un lien vers les annonces de .. https://fr.indeed.com/
-      </div>
-      <div class="tab-pane fade" id="v-pills-courrier" role="tabpanel" aria-labelledby="v-pills-courrier-tab">
-        Je peux faire réexpédier mon courrier en utilisant le service payant de La Poste :
-      </div>
-      <div class="tab-pane fade" id="v-pills-liste" role="tabpanel" aria-labelledby="v-pills-liste-tab">
-        Je dois m'inscrire sur les listes électorales de ma nouvelle commune (ou de mon nouvel arrondissement, à Paris, Lyon et Marseille).
-        Je n'ai pas besoin de demander la modification de l'adresse qui figure sur ma carte nationale d'identité et mon passeport.
-      </div>
-      <div class="tab-pane fade" id="v-pills-eau" role="tabpanel" aria-labelledby="v-pills-eau-tab">
-        Le fournisseur Total Energie est celui ayant les meilleurs tarifs. Cliquez sur ce lien pour souscrire :
-      </div>
-    </div>
+<div class="tasks-banner" style="background-image: url('<%= cloudinary_url(@city.photos.first.key, quality: :auto, crop: :fill) %>');">
+  <div class="container">
+    <h1 id="city-title">Suivez le guide vers <%= @city.name %></h1>
   </div>
 </div>
 
-<%= console %>
+<div class="container my-5">
 
+  <div class="row">
+    <div class="col-3">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active" id="v-pills-emploi-tab" data-toggle="pill" href="#v-pills-emploi" role="tab" aria-controls="v-pills-emploi" aria-selected="false">
+          Emploi
+        </a>
+        <a class="nav-link" id="v-pills-logement-tab" data-toggle="pill" href="#v-pills-logement" role="tab" aria-controls="v-pills-logement" aria-selected="true">
+          Logement
+        </a>
+        <a class="nav-link" id="v-pills-aides-tab" data-toggle="pill" href="#v-pills-aides" role="tab" aria-controls="v-pills-aides" aria-selected="false">
+          Aides au déménagement
+        </a>
+        <a class="nav-link" id="v-pills-enfants-tab" data-toggle="pill" href="#v-pills-enfants" role="tab" aria-controls="v-pills-enfants" aria-selected="false">
+          Enfants et écoles
+        </a>
+        <a class="nav-link" id="v-pills-eau-tab" data-toggle="pill" href="#v-pills-eau" role="tab" aria-controls="v-pills-eau" aria-selected="false">
+          Eau, éléctricité et gaz
+        </a>
+        <a class="nav-link" id="v-pills-courrier-tab" data-toggle="pill" href="#v-pills-courrier" role="tab" aria-controls="v-pills-courrier" aria-selected="false">
+          Suivi courrier & changement d'adresse
+        </a>
+        <a class="nav-link" id="v-pills-cartegrise-tab" data-toggle="pill" href="#v-pills-cartegrise" role="tab" aria-controls="v-pills-cartegrise" aria-selected="false">
+          Carte grise & permis de conduire
+        </a>
+        <a class="nav-link" id="v-pills-liste-tab" data-toggle="pill" href="#v-pills-liste" role="tab" aria-controls="v-pills-liste" aria-selected="false">
+          Papiers d'identité & Listes électorales
+        </a>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="tab-content" id="v-pills-tabContent">
+        
+        <div class="tab-pane fade show active" id="v-pills-emploi" role="tabpanel" aria-labelledby="v-pills-emploi-tab">
+        
+          <div>
+          
+            <h2>Comment trouver un emploi ?</h2>
+            Afin de vous aider dans votre recherche d'emploi, retrouvez les <strong><%= @city.job_ads %> annonces</strong> de <strong><%= @search.job_title.downcase %></strong> auprès de nos partenaires :
+            <div class="d-flex mt-3 flex-wrap">
+              <% job_title = @search.job_title.downcase.split.join('+') %>
 
+              <%= link_to "https://fr.indeed.com/emplois?q=#{job_title}&l=#{@city.name}", class: "partner-badge", target: :_blank do %>
+                <%= image_tag 'partners/indeed.svg' %>
+                <div class="number-badge">4</div>              
+              <% end %>
+              <%= link_to "https://www.monster.fr/emploi/recherche?q=#{job_title}&where=#{@city.name}", class: "partner-badge", target: :_blank do %>
+                <%= image_tag 'partners/monster.svg' %>
+                <div class="number-badge">21</div>  
+              <% end %>
+              <%= link_to "https://www.welcometothejungle.com/fr/jobs?query=#{@search.job_title.downcase}&page=1&aroundQuery=#{@city.name}%2C%20France&aroundLatLng=#{@city.latitude}%2C#{@city.longitude}&aroundRadius=20000", class: "partner-badge", target: :_blank do %>
+                <%= image_tag 'partners/wttj.png' %>
+                <div class="number-badge">0</div>  
+              <% end %>            
+            </div>          
+            
+          </div>
 
+          <div class="mt-4">
+            <div class="advice-card">
+              <div>
+                <i class="fas fa-info-circle"></i>
+                <h5>5 conseils pour réussir votre recherche</h5>
+              </div>
+              <p>
+                <em>Rechercher un emploi demande souvent du temps et de la patience.</em>
+                <p>
+                  <div><span style="font-weight: bold; color: #34113F;">Suivez l'actualité</span></div>
+                  Si les recruteurs sont toujours sensibles à l’ouverture d’esprit et à la curiosité des candidats, il est indispensable de suivre l’actualité de son secteur, a fortiori en période de recherche. 
+                  Soyez en mesure d’échanger de manière approfondie au sujet d’une ou deux actualités pertinentes. 
+                  Cela montrera votre motivation et vous permettra de faire des liens en entretien notamment.
+                </p>
+                <p>
+                  <div><span style="font-weight: bold; color: #34113F;">Réseautez</span></div>
+                  Rendez-vous à des événements, rencontrez sur les réseaux sociaux d’autres professionnels, ou surtout, faites les deux ! 
+                  Rien de mieux pour agrandir son réseau, s’ouvrir l’esprit et qui sait décrocher de nouvellesopportunités professionnelles. 
+                  En effet, de nombreux événements, le plus souvent gratuits sont organisés chaque jour sans que vous en entendiez nécessairement parler.
+                </p>
+                <p>
+                  <div><span style="font-weight: bold; color: #34113F;">Organisez vos journées</span></div>
+                  L’organisation est la clé de votre stabilité durant la période de recherche d’emploi. 
+                  Si vous êtes toujours en poste, organisez des plages horaires fixe dans la semaine pour être sûr de ne pas procrastiner. 
+                  Et, si vous n’êtes plus en poste, ne réduisez surtout pas vos journées à la recherche d’emploi. C’est le meilleur moyen de vous démotiver ! 
+                  Au contraire, variez plutôt les activités, et trouvez le bon équilibre entre repos, recherches et loisirs, vous en serez bien plus efficace.
+                </p>
+                <p>
+                  <div><span style="font-weight: bold; color: #34113F;">Boostez votre CV et votre lettre de motivation</span></div>
+                  Surtout si vous n’êtes plus en activité, la période de recherche d’emploi est propice à la formation et à l’acquisition de compétences additionnelles. 
+                  En plus de monter en compétences, vous pourrez montrer aux recruteurs que vous avez fait l’effort d’apprendre par vous-même.
+                  Suivez les conseils de Pôle Emploi pour réaliser
+                  <%= link_to "un bon CV", "https://www.pole-emploi.fr/region/auvergne-rhone-alpes/candidat/conseils-a-lemploi/realiser-un-bon-cv.html", target: :blank %>
+                  et rédiger 
+                  <%= link_to "votre lettre de motivation", "https://www.pole-emploi.fr/region/auvergne-rhone-alpes/candidat/conseils-a-lemploi/rediger-sa-lettre-de-motivation.html", target: :blank %>.
+                </p>
+                <p>
+                  <div><span style="font-weight: bold; color: #34113F;">Soignez votre messagerie vocale</span></div>
+                  Vous êtes maintenant paré pour chercher un emploi dans la tribu de vos rêves dans les meilleures conditions. 
+                  Après avoir fait tous ces efforts, il serait dommage de laisser une mauvaise impression au recruteur avec une messagerie vocale inappropriée… 
+                  Oui, vous savez, celle que vous n’écoutez jamais et qui n’a pas changé depuis des années. 
+                  Logique, on se laisse rarement des messages vocaux à soi-même. 
+                  Et les recruteurs ne communiquent pas exclusivement par mails.
+                </p>
+              </p>
+            </div>
+          </div>
 
+        </div>
+
+        <div class="tab-pane fade" id="v-pills-logement" role="tabpanel" aria-labelledby="v-pills-logement-tab">
+          
+          <div>
+            <h2>Où démarrer ma recherche de logement ?</h2>            
+            <p>
+              <strong><%= @city.home_ads %> annonces</strong> correspondent en ce moment à votre recherche dans les environs de <%= @city.name %> :
+              <div id="search-home-resume">
+                <span>
+                  <% if @search.home_type == "appart" %>
+                    <i class="fas fa-building"></i>
+                  <% else %>
+                    <i class="fas fa-home"></i>
+                  <% end %>                  
+                  <%= "#{@search.home_type.capitalize} #{@search.home_category}" %>
+                </span>
+                <span><i class="fas fa-ruler-combined"></i> 60 m²</span>
+                <span><i class="fas fa-wallet"></i> 800 €</span>
+              </div>
+            </p>
+            Consultez dès maintenant les offres disponibles chez nos partenaires :
+            <div class="d-flex mt-3">            
+              <% real_estate_type = @search.home_type == "Appart" ? 2 : 1 %>
+              <% rooms = @search.home_category.gsub('T', '') %>
+              
+              <%= link_to "https://www.leboncoin.fr/recherche?category=10&locations=#{@city.name}__#{@city.latitude}_#{@city.longitude}_10000_5000&real_estate_type=#{real_estate_type}&price=min-#{@search.home_budget}&rooms=#{rooms}-max&square=#{@search.home_size}-max", class: "partner-badge", target: :_blank do %>
+                <%= image_tag 'partners/leboncoin.svg' %>
+                <div class="number-badge">8</div>  
+              <% end %>
+
+              <% insee = "{%22inseeCodes%22:[#{@user.city.city_code.first(2)}0#{@city.city_code.last(3)}]}" %>  
+              <%= link_to "https://www.seloger.com/list.htm?projects=1&types=1&places=[#{insee}]&proximities=0,10&price=NaN/#{@search.home_budget}&surface=#{@search.home_size}/NaN&rooms=#{rooms}&enterprise=0&qsVersion=1.0", class: "partner-badge", target: :_blank do %>
+                <%= image_tag 'partners/seloger.png' %>
+                <div class="number-badge">1</div>  
+              <% end %>        
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <h2>Comment résilier mon bail actuel ?</h2>
+            <p>
+              Je dois informer mon bailleur, par lettre recommandée avec accusé-réception, en respectant un <strong>délai de préavis de 1 à 3 mois</strong> selon mon contrat de location, avant mon déménagement.
+              Je récupérerai le dépôt de garantie versé auprès de mon propriétaire dans le mois ou les 2 mois qui suivent mon départ.
+            </p>
+            <p>
+              Complétez votre lettre de résiliation à partir du modèle :
+              <div class="d-flex mt-3">
+              <%= link_to "https://www.legalplace.fr/contrats/lettre-resiliation-bail", class: "partner-badge", target: :_blank do %>
+                  <%= image_tag 'partners/legalplace.png' %>
+                <% end %>
+              </div>
+            </p>
+          </div>
+
+        </div>
+        <div class="tab-pane fade" id="v-pills-enfants" role="tabpanel" aria-labelledby="v-pills-enfants-tab">
+          N'ayez pas d'enfants, vous ferez des économies
+          Sinon, Si vos enfants sont à l'école maternelle ou primaire, il faut demander à changer d'établissement ou maintenir les enfants dans leur ancienne école.
+        </div>
+        <div class="tab-pane fade" id="v-pills-aides" role="tabpanel" aria-labelledby="v-pills-aides-tab">
+          Que je vive seul(e) ou en couple, je peux solliciter ma mairie ou mon département pour éventuellement obtenir des aides financières pour déménager (facture déménageur, location camion, ...) ou m'installer (achat du mobilier de 1re nécessité, ...), notamment par le biais du Fonds de solidarité pour le logement (FSL).
+        </div>
+        <div class="tab-pane fade" id="v-pills-courrier" role="tabpanel" aria-labelledby="v-pills-courrier-tab">
+          Je peux faire réexpédier mon courrier en utilisant le service payant de La Poste :
+        </div>
+        <div class="tab-pane fade" id="v-pills-liste" role="tabpanel" aria-labelledby="v-pills-liste-tab">
+          Je dois m'inscrire sur les listes électorales de ma nouvelle commune (ou de mon nouvel arrondissement, à Paris, Lyon et Marseille).
+          Je n'ai pas besoin de demander la modification de l'adresse qui figure sur ma carte nationale d'identité et mon passeport.
+        </div>
+        <div class="tab-pane fade" id="v-pills-eau" role="tabpanel" aria-labelledby="v-pills-eau-tab">
+          Le fournisseur Total Energie est celui ayant les meilleurs tarifs. Cliquez sur ce lien pour souscrire :
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
 
