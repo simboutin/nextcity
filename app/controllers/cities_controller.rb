@@ -24,12 +24,6 @@ class CitiesController < ApplicationController
     @disable_container = true
   end
 
-  def update_city
-    @city = City.find(params[:city_id])
-    @user = current_user
-    @user.city = @city
-  end
-
   def results
     # City.reindex
     @search = current_user.searches.last
