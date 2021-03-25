@@ -29,6 +29,17 @@
     <% end %>
   </section>
 
+  <!-- My City -->
+  <% if @city %>
+    <section class="my-5">
+      <h2>Ma ville sélectionnée</h2>
+      <div class="cards">
+        <%= render 'shared/city_card', item: @city, card_link: admin_tasks_path %>
+      </div>
+    </section>
+  <% end %>
+  <!-- My City -->
+
 
   <!-- Bookmarks -->
   <section class="my-5">
@@ -42,10 +53,19 @@
     <% else %>
       <p>
         Retrouvez ici toutes vos villes favorites.<br>
-        Décrivez-nous d'abord vos envies pour vous aider à trouver la ville qui vous correspond le mieux.
-        <div><%= link_to "Inspirez-moi", new_search_path, class: "btn btn-primary" %></div>
+        <% if @user.searches.present? %>
+          Consultez votre dernière sélection ou faites une nouvelle recherche.
+          <div>
+            <%= link_to "Voir la sélection", cities_results_path, class: "btn btn-primary mr-2" %>
+            <%= link_to "Inspirez-moi", new_search_path, class: "btn btn-primary" %>
+          </div>
+        <% else %>
+          Décrivez-nous d'abord vos envies pour vous aider à trouver la ville qui vous correspond le mieux.
+          <div><%= link_to "Inspirez-moi", new_search_path, class: "btn btn-primary" %></div>
+        <% end %>
       </p>
     <% end %>
   </section>
-<!-- Bookmarks -->
+  <!-- Bookmarks -->
+
 </div>

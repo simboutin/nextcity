@@ -3,12 +3,14 @@ class Admin::UsersController < ApplicationController
   before_action :check, only: :tasks
 
   def show
-    @city = @user.city || City.last #rendre dynamique avec l'attributation de l'user ID pour le user (pour le moement seul l'embassador à un cityID)
-    @comments = @city.city_comments
+    if @user.city
+      @city = @user.city
+      @comments = @city.city_comments
+    end
     @answer = Answer.new
     @disable_container = true
     @disable_margins = true
-    @bookmarks = @user.bookmarks
+    @bookmarks = @user.bookmarks.includes(:city).order('cities.name')
   end
 
   def tasks

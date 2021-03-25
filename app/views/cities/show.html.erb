@@ -308,7 +308,7 @@
         En confirmant votre choix, vous sélectionnez <strong><%= @city.name %></strong> comme votre prochaine ville et serez accompagné à chaque étape de la concrétisation de votre projet.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Fermer</button>
         <%= link_to "Je confirme", admin_update_usercity_path(@city), method: :patch, class: "btn btn-primary" %>
       </div>
     </div>
