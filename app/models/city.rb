@@ -1,4 +1,7 @@
 class City < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   # searchkick
   has_many :users
   has_many :city_comments, dependent: :destroy

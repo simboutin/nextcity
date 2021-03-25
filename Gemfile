@@ -34,6 +34,9 @@ gem 'devise'
 # Authorization
 gem 'pundit'
 
+# Friendly ID
+gem 'friendly_id', '~> 5.4.0'
+
 # For ElasticSearch
 gem 'searchkick'
 
