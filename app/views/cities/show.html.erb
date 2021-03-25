@@ -1,11 +1,9 @@
+<%= render "shared/city_seo", city: @city %>
+
 <div class="container">
-
   <div class="row">
-
     <div class="col-12 col-md-7">
-
       <section>
-
         <div id="header">
           <h2><%= @city.name %></h2>
           <% if user_signed_in? %>
@@ -38,7 +36,7 @@
             <% if @search %>
               <div class="default-badge <%= @city.job_ads && @city.job_ads.positive? ? "success-badge" : "danger-badge" %>"></div>
             <% end %>
-            <%= render "shared/city_job_criterion", item: @city, search: @search %>  
+            <%= render "shared/city_job_criterion", item: @city, search: @search %>
           </div>
         <% end %>
 
@@ -47,13 +45,13 @@
             <% if @search %>
               <div class="default-badge <%= (@city.flats_rental_price * @search.home_size) < @search.home_budget ? "success-badge" : "danger-badge" %>"></div>
             <% end %>
-            <%= render "shared/city_home_criterion", item: @city, search: @search %>  
+            <%= render "shared/city_home_criterion", item: @city, search: @search %>
           </div>
         <% end %>
 
         <% if @city.net_hourly_wage %>
           <div class="city-badge">
-            <%= render "shared/city_wage_criterion", item: @city %>  
+            <%= render "shared/city_wage_criterion", item: @city %>
           </div>
         <% end %>
 
@@ -62,43 +60,43 @@
             <% if @search && @search.environment == "littoral" %>
               <div class="default-badge success-badge"></div>
             <% end %>
-            <%= render "shared/city_coastline_criterion", item: @city %>  
+            <%= render "shared/city_coastline_criterion", item: @city %>
           </div>
         <% end %>
 
         <% if !(@city.mountain == '') %>
           <div class="city-badge">
-            <%= render "shared/city_mountain_criterion", item: @city %>  
+            <%= render "shared/city_mountain_criterion", item: @city %>
           </div>
         <% end %>
 
         <% if @city.rain_days || @city.sun_hours %>
           <div class="city-badge">
-            <%= render "shared/city_weather_criterion", item: @city %>  
+            <%= render "shared/city_weather_criterion", item: @city %>
           </div>
         <% end %>
 
         <% if @city.tourism_structures_number %>
           <div class="city-badge">
-            <%= render "shared/city_tourism_criterion", item: @city %>  
+            <%= render "shared/city_tourism_criterion", item: @city %>
           </div>
         <% end %>
 
         <% if @city.ftth_homes_rate %>
           <div class="city-badge">
-            <%= render "shared/city_internet_criterion", item: @city %>  
+            <%= render "shared/city_internet_criterion", item: @city %>
           </div>
         <% end %>
 
         <% if @city.max_age_population_rate %>
           <div class="city-badge">
-            <%= render "shared/city_age_criterion", item: @city %>  
+            <%= render "shared/city_age_criterion", item: @city %>
           </div>
         <% end %>
 
         <% if @city.max_type_of_homes_rate %>
           <div class="city-badge">
-            <%= render "shared/city_type_homes_criterion", item: @city %>  
+            <%= render "shared/city_type_homes_criterion", item: @city %>
           </div>
         <% end %>
 
@@ -113,7 +111,7 @@
               <div class="default-badge danger-badge mr-2"></div> Non adapté
             </div>
           </div>
-          
+
           <% if @search.environment == "littoral" && !@city.coastline %>
             <div class="d-flex align-items-center mt-2">
               <i class="fas fa-exclamation-triangle mr-3" style="color: #ee2d48"></i>
@@ -121,9 +119,9 @@
             </div>
           <% end %>
         <% end %>
-      
+
       </section>
-      
+
       <% if policy(CityComment).ask_question? %>
 
         <section class="mt-4">
@@ -180,7 +178,7 @@
       <section>
 
         <div id="city-data">
-          
+
           <div class="d-flex">
             <div class="city-data-icon">
               <i class="fas fa-users"></i>
@@ -201,7 +199,7 @@
           </div>
 
           <%
-            mayor_age = Date.today.year - @city.mayor_date_of_birth.year 
+            mayor_age = Date.today.year - @city.mayor_date_of_birth.year
             mayor_age -=1 if Date.today < @city.mayor_date_of_birth + mayor_age.years
           %>
 
@@ -222,9 +220,9 @@
               <span class="city-data-title">Intercommunalité</span> : <%= @city.epci_name %>
             </div>
           </div>
-        
+
       </section>
-      
+
       <section class="mt-4">
 
         <div id="city-photos-carousel">

@@ -1,3 +1,6 @@
+<% content_for :meta_title, "Les villes de votre choix" %>
+<% content_for :meta_description, "Choisissez les villes qui vous plaisent" %>
+
 <!-- Title & Buttons -->
 <section class="py-4" style="background-color: #F2F2F2; margin-top: 3.6rem;">
   <div class="container d-flex justify-content-between">
@@ -28,7 +31,7 @@
       <div class="d-flex flex-wrap">
         <div class="tag light-purple-tag"><i class="fas fa-check-circle"></i> <%= @search.job_title.capitalize %></div>
         <div class="tag light-purple-tag"><i class="fas fa-check-circle"></i> <%= @search.environment.capitalize %></div>
-        <div class="tag light-purple-tag"><i class="fas fa-check-circle"></i> 
+        <div class="tag light-purple-tag"><i class="fas fa-check-circle"></i>
           <% if @search.city_type == "urbain" %>
             <%= "#{@search.city_type.capitalize} : #{@search.city_size} ville" %>
           <% else %>
@@ -70,7 +73,7 @@
 
     <!--City description -->
     <div class="results mb-3">
-      <%= render partial: "shared/city_description", collection: @cities, as: :item, locals: { search: @search } %>  
+      <%= render partial: "shared/city_description", collection: @cities, as: :item, locals: { search: @search } %>
     </div>
     <!--City description -->
 
@@ -78,7 +81,7 @@
     <div id="emploi-criterion" class="criterion-line show">
       <hr>
       <div class="results">
-        <%= render partial: "shared/city_job_criterion", collection: @cities, as: :item, locals: { search: @search, best: @cities.max_by(&:job_ads) } %>  
+        <%= render partial: "shared/city_job_criterion", collection: @cities, as: :item, locals: { search: @search, best: @cities.max_by(&:job_ads) } %>
       </div>
     </div>
     <!-- Job criterion -->
@@ -87,7 +90,7 @@
     <div id="logement-criterion" class="criterion-line show">
       <hr>
       <div class="results">
-        <%= render partial: "shared/city_home_criterion", collection: @cities, as: :item, locals: { search: @search, best: @cities.min_by(&:flats_rental_price) } %>  
+        <%= render partial: "shared/city_home_criterion", collection: @cities, as: :item, locals: { search: @search, best: @cities.min_by(&:flats_rental_price) } %>
       </div>
     </div>
     <!-- Home criterion -->
@@ -96,7 +99,7 @@
     <div id="météo-criterion" class="criterion-line show">
       <hr>
       <div class="results">
-        <%= render partial: "shared/city_weather_criterion", collection: @cities, as: :item, locals: { best: @cities.min_by(&:rain_days) } %>  
+        <%= render partial: "shared/city_weather_criterion", collection: @cities, as: :item, locals: { best: @cities.min_by(&:rain_days) } %>
       </div>
     </div>
     <!-- Weather criterion -->
@@ -105,7 +108,7 @@
     <div id="internet-criterion" class="criterion-line">
       <hr>
       <div class="results">
-        <%= render partial: "shared/city_internet_criterion", collection: @cities, as: :item, locals: { best: @cities.max_by(&:ftth_homes_rate) } %>  
+        <%= render partial: "shared/city_internet_criterion", collection: @cities, as: :item, locals: { best: @cities.max_by(&:ftth_homes_rate) } %>
       </div>
     </div>
     <!-- Internet criterion -->
@@ -114,14 +117,14 @@
     <div id="tourisme-criterion" class="criterion-line">
       <hr>
       <div class="results">
-        <%= render partial: "shared/city_tourism_criterion", collection: @cities, as: :item, locals: { best: @cities.max_by(&:tourism_structures_number) } %>  
+        <%= render partial: "shared/city_tourism_criterion", collection: @cities, as: :item, locals: { best: @cities.max_by(&:tourism_structures_number) } %>
       </div>
     </div>
     <!-- Tourism criterion -->
 
     <!-- City link -->
     <div id="city-links" class="results">
-      <%= render partial: "shared/city_link", collection: @cities, as: :item %>  
+      <%= render partial: "shared/city_link", collection: @cities, as: :item %>
     </div>
     <!-- City link -->
 

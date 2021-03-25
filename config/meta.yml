@@ -1,5 +1,6 @@
 meta_product_name: "NextCity"
 meta_title: "NextCity - Trouvez la ville qui vous correspond le mieux."
-meta_description: "Description"
+meta_description: "Rejoignez notre communauté de 13000 nexters qui vous accompagneront
+dans votre changement de vie."
 meta_image: "cover.png" # should exist in `app/assets/images/`
-# twitter_account: "@product_twitter_account"   # required for Twitter Cards
+twitter_account: "cover.png"   # required for Twitter Cards
