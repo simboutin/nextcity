@@ -13,7 +13,7 @@
                   <div class="heart is-active"></div>
                 <% end %>
               <% else %>
-                <%= link_to city_bookmarks_path(@city), method: :post, remote: true do %>
+                <%= link_to city_bookmarks_path(@city.id), method: :post, remote: true do %>
                 <div class="heart"></div>
                 <% end %>
               <% end %>
