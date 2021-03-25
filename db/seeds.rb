@@ -61,10 +61,10 @@ puts "Instance de la city"
   sun_hours: 2635
 )
 
-@arles.photos.attach(io: File.open("app/assets/images/arles/arles.jpg"), filename: "arles.jpg", content_type: "image/jpg")
-@arles.photos.attach(io: File.open("app/assets/images/arles/arles2.jpg"), filename: "arles2.jpg", content_type: "image/jpg")
-@arles.photos.attach(io: File.open("app/assets/images/arles/arles3.jpg"), filename: "arles3.jpg", content_type: "image/jpg")
-@arles.photos.attach(io: File.open("app/assets/images/arles/arles4.jpg"), filename: "arles4.jpg", content_type: "image/jpg")
+@arles.photos.attach(io: File.open("app/assets/images/cities/arles/arles.jpg"), filename: "arles.jpg", content_type: "image/jpg")
+@arles.photos.attach(io: File.open("app/assets/images/cities/arles/arles2.jpg"), filename: "arles2.jpg", content_type: "image/jpg")
+@arles.photos.attach(io: File.open("app/assets/images/cities/arles/arles3.jpg"), filename: "arles3.jpg", content_type: "image/jpg")
+@arles.photos.attach(io: File.open("app/assets/images/cities/arles/arles4.jpg"), filename: "arles4.jpg", content_type: "image/jpg")
 
 @rochefort = City.create!(
   name: "Rochefort",
@@ -111,12 +111,12 @@ puts "Instance de la city"
   sun_hours: 2385
 )
 
-@rochefort.photos.attach(io: File.open("app/assets/images/rochefort/rochefort.jpg"), filename: "rochefort.jpg", content_type: "image/jpg")
-@rochefort.photos.attach(io: File.open("app/assets/images/rochefort/rochefort2.png"), filename: "rochefort2.png", content_type: "image/png")
-@rochefort.photos.attach(io: File.open("app/assets/images/rochefort/rochefort3.jpg"), filename: "rochefort3.jpg", content_type: "image/jpg")
-@rochefort.photos.attach(io: File.open("app/assets/images/rochefort/rochefort4.jpg"), filename: "rochefort4.jpg", content_type: "image/jpg")
-@rochefort.photos.attach(io: File.open("app/assets/images/rochefort/rochefort5.jpg"), filename: "rochefort5.jpg", content_type: "image/jpg")
-@rochefort.photos.attach(io: File.open("app/assets/images/rochefort/rochefort6.jpg"), filename: "rochefort6.jpg", content_type: "image/jpg")
+@rochefort.photos.attach(io: File.open("app/assets/images/cities/rochefort/rochefort.jpg"), filename: "rochefort.jpg", content_type: "image/jpg")
+@rochefort.photos.attach(io: File.open("app/assets/images/cities/rochefort/rochefort2.png"), filename: "rochefort2.png", content_type: "image/png")
+@rochefort.photos.attach(io: File.open("app/assets/images/cities/rochefort/rochefort3.jpg"), filename: "rochefort3.jpg", content_type: "image/jpg")
+@rochefort.photos.attach(io: File.open("app/assets/images/cities/rochefort/rochefort4.jpg"), filename: "rochefort4.jpg", content_type: "image/jpg")
+@rochefort.photos.attach(io: File.open("app/assets/images/cities/rochefort/rochefort5.jpg"), filename: "rochefort5.jpg", content_type: "image/jpg")
+@rochefort.photos.attach(io: File.open("app/assets/images/cities/rochefort/rochefort6.jpg"), filename: "rochefort6.jpg", content_type: "image/jpg")
 
 @sete = City.create!(
   name: "Sète",
@@ -164,9 +164,9 @@ puts "Instance de la city"
   sun_hours: 2652
 )
 
-@sete.photos.attach(io: File.open("app/assets/images/sète/sète.jpg"), filename: "sète.jpg", content_type: "image/jpg")
-@sete.photos.attach(io: File.open("app/assets/images/sète/sète2.jpg"), filename: "sète2.jpg", content_type: "image/jpg")
-@sete.photos.attach(io: File.open("app/assets/images/sète/sète3.jpg"), filename: "sète3.jpg", content_type: "image/jpg")
+@sete.photos.attach(io: File.open("app/assets/images/cities/sète/sète.jpg"), filename: "sète.jpg", content_type: "image/jpg")
+@sete.photos.attach(io: File.open("app/assets/images/cities/sète/sète2.jpg"), filename: "sète2.jpg", content_type: "image/jpg")
+@sete.photos.attach(io: File.open("app/assets/images/cities/sète/sète3.jpg"), filename: "sète3.jpg", content_type: "image/jpg")
 
 @eclose = City.create!(
   name: "Eclose-Badinières",
@@ -212,9 +212,9 @@ puts "Instance de la city"
   sun_hours: nil
 )
 
-@eclose.photos.attach(io: File.open("app/assets/images/éclose-badinières/éclose-badinières.jpg"), filename: "éclose-badinières.jpg", content_type: "image/jpg")
-@eclose.photos.attach(io: File.open("app/assets/images/éclose-badinières/éclose-badinières2.jpg"), filename: "éclose-badinières2.jpg", content_type: "image/jpg")
-@eclose.photos.attach(io: File.open("app/assets/images/éclose-badinières/éclose-badinières3.jpg"), filename: "éclose-badinières3.jpg", content_type: "image/jpg")
+@eclose.photos.attach(io: File.open("app/assets/images/cities/éclose-badinières/éclose-badinières.jpg"), filename: "éclose-badinières.jpg", content_type: "image/jpg")
+@eclose.photos.attach(io: File.open("app/assets/images/cities/éclose-badinières/éclose-badinières2.jpg"), filename: "éclose-badinières2.jpg", content_type: "image/jpg")
+@eclose.photos.attach(io: File.open("app/assets/images/cities/éclose-badinières/éclose-badinières3.jpg"), filename: "éclose-badinières3.jpg", content_type: "image/jpg")
 
 @cherbourg = City.create!(
   name: "Cherbourg-en-Cotentin",
@@ -265,10 +265,10 @@ puts "Instance de la city"
   sun_hours: 1854
 )
 
-@cherbourg.photos.attach(io: File.open("app/assets/images/cherbourg-en-cotentin/cherbourg-en-cotentin.jpg"), filename: "cherbourg-en-cotentin.jpg", content_type: "image/jpg")
-@cherbourg.photos.attach(io: File.open("app/assets/images/cherbourg-en-cotentin/cherbourg-en-cotentin2.jpg"), filename: "cherbourg-en-cotentin2.jpg", content_type: "image/jpg")
-@cherbourg.photos.attach(io: File.open("app/assets/images/cherbourg-en-cotentin/cherbourg-en-cotentin3.jpg"), filename: "cherbourg-en-cotentin3.jpg", content_type: "image/jpg")
-@cherbourg.photos.attach(io: File.open("app/assets/images/cherbourg-en-cotentin/cherbourg-en-cotentin4.jpeg"), filename: "cherbourg-en-cotentin4.jpeg", content_type: "image/jpeg")
+@cherbourg.photos.attach(io: File.open("app/assets/images/cities/cherbourg-en-cotentin/cherbourg-en-cotentin.jpg"), filename: "cherbourg-en-cotentin.jpg", content_type: "image/jpg")
+@cherbourg.photos.attach(io: File.open("app/assets/images/cities/cherbourg-en-cotentin/cherbourg-en-cotentin2.jpg"), filename: "cherbourg-en-cotentin2.jpg", content_type: "image/jpg")
+@cherbourg.photos.attach(io: File.open("app/assets/images/cities/cherbourg-en-cotentin/cherbourg-en-cotentin3.jpg"), filename: "cherbourg-en-cotentin3.jpg", content_type: "image/jpg")
+@cherbourg.photos.attach(io: File.open("app/assets/images/cities/cherbourg-en-cotentin/cherbourg-en-cotentin4.jpeg"), filename: "cherbourg-en-cotentin4.jpeg", content_type: "image/jpeg")
 
 @boulogne_sur_mer = City.create!(
   name: "Boulogne-sur-Mer",
@@ -316,11 +316,11 @@ puts "Instance de la city"
   sun_hours: 1454
 )
 
-@boulogne_sur_mer.photos.attach(io: File.open("app/assets/images/boulogne-sur-mer/boulogne-sur-mer.jpg"), filename: "boulogne-sur-mer.jpg", content_type: "image/jpg")
-@boulogne_sur_mer.photos.attach(io: File.open("app/assets/images/boulogne-sur-mer/boulogne-sur-mer2.png"), filename: "boulogne-sur-mer2.png", content_type: "image/png")
-@boulogne_sur_mer.photos.attach(io: File.open("app/assets/images/boulogne-sur-mer/boulogne-sur-mer3.jpg"), filename: "boulogne-sur-mer3.jpg", content_type: "image/jpg")
-@boulogne_sur_mer.photos.attach(io: File.open("app/assets/images/boulogne-sur-mer/boulogne-sur-mer4.jpg"), filename: "boulogne-sur-mer4.jpg", content_type: "image/jpg")
-@boulogne_sur_mer.photos.attach(io: File.open("app/assets/images/boulogne-sur-mer/boulogne-sur-mer5.jpg"), filename: "boulogne-sur-mer5.jpg", content_type: "image/jpg")
+@boulogne_sur_mer.photos.attach(io: File.open("app/assets/images/cities/boulogne-sur-mer/boulogne-sur-mer.jpg"), filename: "boulogne-sur-mer.jpg", content_type: "image/jpg")
+@boulogne_sur_mer.photos.attach(io: File.open("app/assets/images/cities/boulogne-sur-mer/boulogne-sur-mer2.png"), filename: "boulogne-sur-mer2.png", content_type: "image/png")
+@boulogne_sur_mer.photos.attach(io: File.open("app/assets/images/cities/boulogne-sur-mer/boulogne-sur-mer3.jpg"), filename: "boulogne-sur-mer3.jpg", content_type: "image/jpg")
+@boulogne_sur_mer.photos.attach(io: File.open("app/assets/images/cities/boulogne-sur-mer/boulogne-sur-mer4.jpg"), filename: "boulogne-sur-mer4.jpg", content_type: "image/jpg")
+@boulogne_sur_mer.photos.attach(io: File.open("app/assets/images/cities/boulogne-sur-mer/boulogne-sur-mer5.jpg"), filename: "boulogne-sur-mer5.jpg", content_type: "image/jpg")
 
 @lyon = City.create!(
   name: "Lyon",
@@ -367,12 +367,12 @@ puts "Instance de la city"
   sun_hours: 2231
 )
 
-@lyon.photos.attach(io: File.open("app/assets/images/lyon/lyon.jpg"), filename: "lyon.jpg", content_type: "image/jpg")
-@lyon.photos.attach(io: File.open("app/assets/images/lyon/lyon2.jpg"), filename: "lyon2.jpg", content_type: "image/jpg")
-@lyon.photos.attach(io: File.open("app/assets/images/lyon/lyon3.jpg"), filename: "lyon3.jpg", content_type: "image/jpg")
-@lyon.photos.attach(io: File.open("app/assets/images/lyon/lyon4.jpg"), filename: "lyon4.jpg", content_type: "image/jpg")
-@lyon.photos.attach(io: File.open("app/assets/images/lyon/lyon5.jpg"), filename: "lyon5.jpg", content_type: "image/jpg")
-@lyon.photos.attach(io: File.open("app/assets/images/lyon/lyon6.jpg"), filename: "lyon6.jpg", content_type: "image/jpg")
+@lyon.photos.attach(io: File.open("app/assets/images/cities/lyon/lyon.jpg"), filename: "lyon.jpg", content_type: "image/jpg")
+@lyon.photos.attach(io: File.open("app/assets/images/cities/lyon/lyon2.jpg"), filename: "lyon2.jpg", content_type: "image/jpg")
+@lyon.photos.attach(io: File.open("app/assets/images/cities/lyon/lyon3.jpg"), filename: "lyon3.jpg", content_type: "image/jpg")
+@lyon.photos.attach(io: File.open("app/assets/images/cities/lyon/lyon4.jpg"), filename: "lyon4.jpg", content_type: "image/jpg")
+@lyon.photos.attach(io: File.open("app/assets/images/cities/lyon/lyon5.jpg"), filename: "lyon5.jpg", content_type: "image/jpg")
+@lyon.photos.attach(io: File.open("app/assets/images/cities/lyon/lyon6.jpg"), filename: "lyon6.jpg", content_type: "image/jpg")
 
 @marcy_letoile = City.create!(
   name: "Marcy-l'Étoile",
@@ -417,10 +417,10 @@ puts "Instance de la city"
   sun_hours: 2231
 )
 
-@marcy_letoile.photos.attach(io: File.open("app/assets/images/marcy-l-étoile/marcy-l-étoile.jpg"), filename: "marcy-l-étoile.jpg", content_type: "image/jpg")
-@marcy_letoile.photos.attach(io: File.open("app/assets/images/marcy-l-étoile/marcy-l-étoile2.jpg"), filename: "marcy-l-étoile2.jpg", content_type: "image/jpg")
-@marcy_letoile.photos.attach(io: File.open("app/assets/images/marcy-l-étoile/marcy-l-étoile3.jpg"), filename: "marcy-l-étoile3.jpg", content_type: "image/jpg")
-@marcy_letoile.photos.attach(io: File.open("app/assets/images/marcy-l-étoile/marcy-l-étoile4.jpg"), filename: "marcy-l-étoile4.jpg", content_type: "image/jpg")
+@marcy_letoile.photos.attach(io: File.open("app/assets/images/cities/marcy-l-étoile/marcy-l-étoile.jpg"), filename: "marcy-l-étoile.jpg", content_type: "image/jpg")
+@marcy_letoile.photos.attach(io: File.open("app/assets/images/cities/marcy-l-étoile/marcy-l-étoile2.jpg"), filename: "marcy-l-étoile2.jpg", content_type: "image/jpg")
+@marcy_letoile.photos.attach(io: File.open("app/assets/images/cities/marcy-l-étoile/marcy-l-étoile3.jpg"), filename: "marcy-l-étoile3.jpg", content_type: "image/jpg")
+@marcy_letoile.photos.attach(io: File.open("app/assets/images/cities/marcy-l-étoile/marcy-l-étoile4.jpg"), filename: "marcy-l-étoile4.jpg", content_type: "image/jpg")
 
 @sables_olonne = City.create!(
   name: "Les Sables-d'Olonne",
@@ -470,10 +470,10 @@ puts "Instance de la city"
   sun_hours: 2119
 )
 
-@sables_olonne.photos.attach(io: File.open("app/assets/images/les-sables-d-olonne/les-sables-d-olonne.jpg"), filename: "les-sables-d-olonne.jpg", content_type: "image/jpg")
-@sables_olonne.photos.attach(io: File.open("app/assets/images/les-sables-d-olonne/les-sables-d-olonne2.jpg"), filename: "les-sables-d-olonne2.jpg", content_type: "image/jpg")
-@sables_olonne.photos.attach(io: File.open("app/assets/images/les-sables-d-olonne/les-sables-d-olonne3.jpg"), filename: "les-sables-d-olonne3.jpg", content_type: "image/jpg")
-@sables_olonne.photos.attach(io: File.open("app/assets/images/les-sables-d-olonne/les-sables-d-olonne4.jpg"), filename: "les-sables-d-olonne4.jpg", content_type: "image/jpg")
+@sables_olonne.photos.attach(io: File.open("app/assets/images/cities/les-sables-d-olonne/les-sables-d-olonne.jpg"), filename: "les-sables-d-olonne.jpg", content_type: "image/jpg")
+@sables_olonne.photos.attach(io: File.open("app/assets/images/cities/les-sables-d-olonne/les-sables-d-olonne2.jpg"), filename: "les-sables-d-olonne2.jpg", content_type: "image/jpg")
+@sables_olonne.photos.attach(io: File.open("app/assets/images/cities/les-sables-d-olonne/les-sables-d-olonne3.jpg"), filename: "les-sables-d-olonne3.jpg", content_type: "image/jpg")
+@sables_olonne.photos.attach(io: File.open("app/assets/images/cities/les-sables-d-olonne/les-sables-d-olonne4.jpg"), filename: "les-sables-d-olonne4.jpg", content_type: "image/jpg")
 
 ###################
 
@@ -558,33 +558,74 @@ puts "Création des ambassadeurs terminé"
 puts "Instance des questions"
 
 @question_one = CityComment.create!(
-  content: "Trouve t'on des nougats dans cette ville ?",
+  content: "Que pensez-vous du cadre de vie dans cette ville ?",
   city: @cherbourg,
   user: @thibault
   )
 
 @question_two = CityComment.create!(
-  content: "Ma question est-elle en mousse ?",
+  content: "J'ai entendu dire que la ville était sale, vous en pensez quoi ?",
   city: @cherbourg,
   user: @alexandre
   )
 
 @question_three = CityComment.create!(
-  content: "Aimez-vous les tatanes ?",
+  content: "Appréciez-vous vraiment la mer ?",
   city: @cherbourg,
-  user: @thibault
+  user: @antoine
+  )
+
+@question_four = CityComment.create!(
+  content: "J'hésite à quitter Lyon pour Cherbourg-en-Cotentin. Des avis ?",
+  city: @cherbourg,
+  user: @joseph
+  )
+
+@question_five = CityComment.create!(
+  content: "Nous voudrions habiter sur notre bateau dans cette ville. Quel port nous conseillez-vous ?",
+  city: @cherbourg,
+  user: @yann
   )
 
 puts "Instance des réponses"
 
 answer_one = Answer.create!(
-  comment: "On trouve de tout dans cette ville, même l'amour HAHAHA ;)",
+  comment: "Etant un cadre dynamique ayant quitté Paris il y'a peu, je ne regrette pas du tout mon choix.
+  C'est une ville magnifique, calme et très agréable à vivre. La bibliothèque municipale est refaite à neuf.
+  Il y'a aussi le beau théâtre à l'italienne et vous trouverez des piscines propres avec des services très convenables (jacuzzi, hammam) etc.",
   city_comment: @question_one,
-  user: @antoine
+  user: @matthieu
   )
 
 answer_two = Answer.create!(
-  comment: "En tout cas elle ne casse pas des briques...",
+  comment: "Bonjour Alexandre.
+  Comme dans toutes les villes, ils arrivent que les rues soient parfois sales, mais dans l'ensemble c'est très correct.
+  Le seul reproche que je pourrai lui faire serait le manque de parcs pour pouvoir s'évader un peu plus.",
   city_comment: @question_two,
+  user: @fabien
+  )
+
+answer_three = Answer.create!(
+  comment: "Oui, la mer est jolie ici, oui c'est agréable de la voir.
+  Mais elle est glaciale, il est très difficile de s'y baigner même en plein été.
+  Au final, on ne peut pas beaucoup en profiter (2/3 mois dans l'année)
+  étant donné que la météo est trop instable ici.",
+  city_comment: @question_three,
+  user: @matthieu
+  )
+
+answer_four = Answer.create!(
+  comment: " La qualité de vie en général est géniale !
+  C'est une ville où l'on se sent en sécurité dans un environnement magnifique.
+  Le coût de la vie y est bien moindre qu'ailleurs, logements, assurances... Il n'y a pas d'embouteillages, quasiment pas de pollution,
+  les classes à l'école ne sont pas surchargées et l'environnement scolaire est plus que favorable à l'équilibre des enfants. Une ville à taille humaine dans laquelle on peut se déplacer facilement à pied sans être obligé de prendre la voiture constamment.",
+  city_comment: @question_four,
+  user: @fabien
+  )
+
+answer_five = Answer.create!(
+  comment: "J'ai vécu 2 ans sur un voilier à port chantereyne, la marina est certainement l'une des meilleures de toute la Normandie. Moderne, accueil parfait, sanitaires impeccables, propreté des pontons, personnel aimable, citoyens brut de pommes mais conviviaux attachants,
+  environnement naturel appréciable sauf que le problème est le climat pluvieux. Mais l'idéal n'exizte pas :)",
+  city_comment: @question_five,
   user: @matthieu
   )

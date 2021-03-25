@@ -63,6 +63,19 @@
   }
 }
 
+.advice-card {
+  padding: 1.3rem;
+  background-color: $light-purple;
+  border-radius: $border-radius;
+  i {
+    color: $purple;
+    margin-right: 0.5rem;
+  }
+  p {
+    margin-top: 1rem;
+  }
+}
+
 .cards {
   display: grid;
   grid-template-columns: 1fr;

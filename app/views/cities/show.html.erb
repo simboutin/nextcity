@@ -267,23 +267,48 @@
 
 </div>
 
-<div id="cta-block" class="d-flex align-items-center justify-content-between">
+<% if @search && !current_user.city %>
 
-    <% if @search %>
+  <div id="cta-block" class="d-flex align-items-center justify-content-between">
+    <div>
+      <span id="cta-block-title">Envie de déménager à <%= @city.name %> ?</span>
+      <p class="mb-0">Faites-vous guider dans l'ensemble de vos démarches vers votre futur lieu de vie.</p>
+    </div>
+    
+    <button id="cta-btn" type="button" class="btn btn-primary" data-toggle="modal" data-target="#cityConfirmation">
+      J'y vais
+    </button>
+  </div>
 
-      <div>
-        <span id="cta-block-title">Envie de déménager à <%= @city.name %> ?</span>
-        <p class="mb-0">Faites-vous guider dans l'ensemble de vos démarches vers votre futur lieu de vie.</p>
+<% elsif !@search %>
+
+  <div id="cta-block" class="d-flex align-items-center justify-content-between">
+    <div>
+      <span id="cta-block-title">Besoin d'un guide ?</span>
+      <p class="mb-0">Décrivez-nous vos envies pour vous aider à trouver la ville qui vous correspond le mieux.</p>
+    </div>
+    <%= link_to "Inspirez-moi", new_search_path, id: "cta-btn", class: "btn btn-primary" %>
+  </div>      
+
+<% end %>
+
+<!-- City Confirmation Modal -->
+<div class="modal fade" id="cityConfirmation" tabindex="-1" role="dialog" aria-labelledby="cityConfirmationTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="cityConfirmationLongTitle">Prêt pour un nouveau départ ?</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <%= link_to "J'y vais", admin_tasks_path, id: "cta-btn", class: "btn btn-primary" %>
-
-    <% else %>
-
-      <div>
-        <span id="cta-block-title">Besoin d'un guide ?</span>
-        <p class="mb-0">Décrivez-nous vos envies pour vous aider à trouver la ville qui vous correspond le mieux.</p>
+      <div class="modal-body">
+        En confirmant votre choix, vous sélectionnez <strong><%= @city.name %></strong> comme votre prochaine ville et serez accompagné à chaque étape de la concrétisation de votre projet.
       </div>
-      <%= link_to "Inspirez-moi", new_search_path, id: "cta-btn", class: "btn btn-primary" %>
-
-    <% end %>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Fermer</button>
+        <%= link_to "Je confirme", admin_update_usercity_path(@city), method: :patch, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
 </div>
