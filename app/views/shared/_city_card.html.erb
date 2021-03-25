@@ -1,4 +1,5 @@
-<%= link_to city_path(item) do %>
+<% city_card_link = defined?(card_link) ? card_link : city_path(item) %>
+<%= link_to city_card_link do %>
   <div class="default-card card-city m-3" style="background-image: url(
       <% if item.photos.attached? %>
         <%= cloudinary_url(item.photos.first.key, quality: :auto, crop: :fill) %>

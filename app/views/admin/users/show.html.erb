@@ -1,7 +1,10 @@
 <!-- Title & Buttons -->
 <section class="py-4 mb-4" style="background-color: #F2F2F2; margin-top: 3.6rem;">
   <div class="container d-flex justify-content-between">
-    <h1>Votre admin</h1>
+    <h1>Mon compte</h1>
+    <%= link_to edit_user_registration_path(current_user), class: "btn btn-outline-primary d-flex align-items-center" do %>
+      <i class="fas fa-pen mr-2"></i> &Eacute;diter mon compte
+    <% end %>
   </div>
 </section>
 <div class="container">
@@ -26,17 +29,43 @@
     <% end %>
   </section>
 
+  <!-- My City -->
+  <% if @city %>
+    <section class="my-5">
+      <h2>Ma ville sélectionnée</h2>
+      <div class="cards">
+        <%= render 'shared/city_card', item: @city, card_link: admin_tasks_path %>
+      </div>
+    </section>
+  <% end %>
+  <!-- My City -->
+
 
   <!-- Bookmarks -->
-  <% if current_user.bookmarks.present? %>
   <section class="my-5">
-    <h2 class="mb-3">Vos favoris</h2>
-    <div class="cards">
-      <% @bookmarks.each do |bookmark| %>
-        <%= render 'shared/city_card', item: bookmark.city %>
-      <% end %>
-    </div>
+    <h2 class="mb-3">Mes favoris</h2>
+    <% if current_user.bookmarks.present? %>
+      <div class="cards">
+        <% @bookmarks.each do |bookmark| %>
+          <%= render 'shared/city_card', item: bookmark.city %>
+        <% end %>
+      </div>
+    <% else %>
+      <p>
+        Retrouvez ici toutes vos villes favorites.<br>
+        <% if @user.searches.present? %>
+          Consultez votre dernière sélection ou faites une nouvelle recherche.
+          <div>
+            <%= link_to "Voir la sélection", cities_results_path, class: "btn btn-primary mr-2" %>
+            <%= link_to "Inspirez-moi", new_search_path, class: "btn btn-primary" %>
+          </div>
+        <% else %>
+          Décrivez-nous d'abord vos envies pour vous aider à trouver la ville qui vous correspond le mieux.
+          <div><%= link_to "Inspirez-moi", new_search_path, class: "btn btn-primary" %></div>
+        <% end %>
+      </p>
+    <% end %>
   </section>
-  <% end %>
-<!-- Bookmarks -->
+  <!-- Bookmarks -->
+
 </div>

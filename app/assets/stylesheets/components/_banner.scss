@@ -1,0 +1,28 @@
+.tasks-banner {
+  display: flex;
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 180px;
+  margin-top: 56px;
+}
+
+#home-banner {
+  display: flex;
+  align-items: center;
+  background-color: $yellow;
+  height: 100vh;
+  img {
+    width: 40%;
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  #home-banner {
+    img {
+      display: block;
+    }
+  }
+}

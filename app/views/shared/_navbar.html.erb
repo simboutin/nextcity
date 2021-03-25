@@ -11,7 +11,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <% unless current_user.searches.empty? %>
+        <% if current_user.searches.present? %>
           <li class="nav-item active d-flex align-items-center mr-4">
             <%= link_to cities_results_path do %>
               <i class="fas fa-search-location navbar-icon"></i>
@@ -30,9 +30,11 @@
             <%= image_tag "avatar-template.png", class: "avatar dropdown-toggle ", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Mon compte", edit_user_registration_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Mon admin", admin_user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to "Mon compte", admin_user_path(current_user), class: "dropdown-item" %>
+            <% if current_user.searches.present? && current_user.city %>
+              <%= link_to "Mon guide", admin_tasks_path, class: "dropdown-item" %> 
+            <% end %>
+            <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
       <% else %>
