@@ -20,7 +20,7 @@ class CityCommentsController < ApplicationController
   end
 
   def set_city
-    @city = City.find(params[:city_id])
+    @city = City.friendly.find(params[:city_id])
   end
 
   def city_comment_params
