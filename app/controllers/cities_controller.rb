@@ -4,7 +4,7 @@ class CitiesController < ApplicationController
   # skip_after_action :verify_authorized, only: :results
 
   def show
-    @city = City.find(params[:id])
+    @city = City.friendly.find(params[:id])
     @comments = @city.city_comments
     @comment = CityComment.new
     if user_signed_in?

@@ -21,7 +21,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def update_city
-    @city = City.find(params[:city_id])
+    @city = City.friendly.find(params[:city_id])
     @user.city = @city
     if @user.save
       redirect_to admin_tasks_path, notice: { body: "3..2..1... Décollage immédiat pour #{@city.name}", class: "rocket" }
