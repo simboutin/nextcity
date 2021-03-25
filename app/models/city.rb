@@ -1,6 +1,7 @@
 class City < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
+  attr_accessor :slug
 
   # searchkick
   has_many :users
