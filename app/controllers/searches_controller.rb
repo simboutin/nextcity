@@ -29,7 +29,7 @@ class SearchesController < ApplicationController
     if search.save
       redirect_to cities_results_path, notice: { body: "Découvrez votre nouvelle sélection", class: "wow" }
     else
-      render "cities#results", alert: "Découvrez votre nouvelle sélection"
+      render :new, alert: "🐞 Oups... un petit problème est apparu, faites une nouvelle recherche ou revenez plus tard si le problème persiste."
     end
   end
 

@@ -4,7 +4,7 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.user = @user
     if @bookmark.save
-      redirect_to @bookmark.city, notice: 'Ville ajoutée en favoris'
+      redirect_to @bookmark.city, notice: "💖 #{@bookmark.city.name} a été ajoutée à vos favoris."
     end
     authorize @bookmark
   end
@@ -12,7 +12,7 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
-    redirect_to @bookmark.city, notice: 'Ville supprimée des favoris'
+    redirect_to @bookmark.city, notice: "💔 #{@bookmark.city.name} a été supprimée de vos favoris."
     authorize @bookmark
   end
 
