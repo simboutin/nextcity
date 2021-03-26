@@ -624,8 +624,8 @@ answer_four = Answer.create!(
   )
 
 answer_five = Answer.create!(
-  comment: "J'ai vécu 2 ans sur un voilier à port chantereyne, la marina est certainement l'une des meilleures de toute la Normandie. Moderne, accueil parfait, sanitaires impeccables, propreté des pontons, personnel aimable, citoyens brut de pommes mais conviviaux attachants,
-  environnement naturel appréciable sauf que le problème est le climat pluvieux. Mais l'idéal n'exizte pas :)",
+  comment: "J'ai vécu 2 ans sur un voilier à port chantereyne, la marina est certainement l'une des meilleures de toute la Normandie. 
+  Moderne, accueil parfait, sanitaires impeccables, propreté des pontons, personnel aimable, citoyens bruts de pommes mais conviviaux et attachants, environnement naturel appréciable sauf que le problème est le climat pluvieux. Mais l'idéal n'existe pas :)",
   city_comment: @question_five,
   user: @matthieu
   )
