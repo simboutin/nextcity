@@ -15,4 +15,8 @@ class User < ApplicationRecord
   def bookmark_for(city)
     bookmarks.find_by(city: city)
   end
+
+  def ask_question?(city)
+    !ambassador || (ambassador && self.city != city)
+  end
 end
