@@ -37,6 +37,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def check
-    return redirect_to root_path, notice: "Vous devez d'abord sélectionner votre ville de destination." if current_user.city.nil?
+    return redirect_to root_path, notice: "Vous n'êtes pas autorisé à accéder à cette page." if current_user.city.nil? || current_user.ambassador
   end
 end

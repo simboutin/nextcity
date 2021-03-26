@@ -32,7 +32,7 @@
   </section>
 
   <!-- My City -->
-  <% if @city %>
+  <% if @city && !@user.ambassador %>
     <section class="my-5">
       <h2>Ma ville sélectionnée</h2>
       <div class="cards">
