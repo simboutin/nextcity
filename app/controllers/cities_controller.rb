@@ -5,7 +5,7 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.friendly.find(params[:id])
-    @comments = @city.city_comments
+    @comments = @city.city_comments.with_answer
     @comment = CityComment.new
     if user_signed_in?
       @search = current_user.searches.last
